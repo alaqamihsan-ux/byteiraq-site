@@ -220,6 +220,13 @@ footer{background:var(--navy-900);color:#dbe4ff;padding-block:30px}
 .steps div::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--blue);color:#fff;font-weight:900;font-family:var(--display);margin-bottom:10px}
 .steps b{display:block;font-family:var(--display);color:var(--navy-800);margin-bottom:4px}
 .steps span{color:var(--muted);font-size:.95rem}
+.upd{margin:4px 0 16px;background:var(--soft);border:1px dashed var(--c);border-radius:16px;padding:14px 16px}
+.upd-h{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px;margin-bottom:6px}
+.upd-h b{font-family:var(--display);color:var(--c)}
+.upd-h span{font-weight:700;color:var(--ink)}
+.upd ul{margin:0 0 10px;padding-inline-start:20px;color:var(--muted)}
+.upd p{margin:10px 0 0;font-size:.9rem;color:var(--muted)}
+.upd .btn{font-size:.95rem;padding:8px 16px}
 .fnav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin-top:20px;font-weight:700}
 .fnav a{opacity:.8}.fnav a:hover{opacity:1;color:#fff}
 @media (max-width:1020px){.cards{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.detail{grid-template-columns:1fr}}
