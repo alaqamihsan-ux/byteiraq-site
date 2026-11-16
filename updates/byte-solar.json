@@ -1,6 +1,7 @@
 {
- "version": "1.0.0",
- "notes": "الإصدار الأول",
+ "version": "1.0.1",
+ "notes": "ألوان متعددة للواجهة · المستخدمين والأدوار (البائع يبيع فقط) · أجور وخدمات بالفاتورة · الإعدادات بتبويبات",
  "date": "2026-11-16",
- "url": ""
+ "url": "https://alaqamihsan-ux.github.io/byteprog/updates/byte-solar-1.0.1.bsu",
+ "exeUrl": "https://github.com/alaqamihsan-ux/byteprog/releases/download/solar-v1.0.1/ByteSolar-Setup-1.0.1.exe"
 }
