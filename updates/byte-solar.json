@@ -1,6 +1,6 @@
 {
- "version": "1.0.4",
- "notes": "فوارز الآلاف بكل حقول الأرقام بالبرنامج (مثل 15,500 و 1,150,000) حتى تميّز الآحاد والعشرات والمئات بسهولة · زر حذف لكل إدخال بصفحة الوارد",
+ "version": "1.0.5",
+ "notes": "فتح البرنامج من الموبايل من أي مكان عبر الإنترنت باستخدام Tailscale (الإعدادات ← الشبكة) · قائمة مطوية على شاشة الموبايل · إصلاح حقل المنفذ (Port)",
  "date": "2026-11-17",
- "url": "https://alaqamihsan-ux.github.io/byteprog/updates/byte-solar-1.0.4.bsu"
+ "url": "https://alaqamihsan-ux.github.io/byteprog/updates/byte-solar-1.0.5.bsu"
 }
