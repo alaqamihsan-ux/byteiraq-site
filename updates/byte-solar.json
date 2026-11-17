@@ -1,6 +1,6 @@
 {
- "version": "1.0.2",
- "notes": "بطاقات لوحة التحكم والجداول تتلوّن حسب لون الواجهة · زر ألوان الواجهة بالشريط الجانبي",
- "date": "2026-11-16",
- "url": "https://alaqamihsan-ux.github.io/byteprog/updates/byte-solar-1.0.2.bsu"
+ "version": "1.0.3",
+ "notes": "زر «حذف» لكل إدخال بصفحة الوارد (شراء): يُنقص الكمية من المخزن ويُرجع المبلغ للقاصة ويحذف باركودات الأجهزة غير المباعة",
+ "date": "2026-11-17",
+ "url": "https://alaqamihsan-ux.github.io/byteprog/updates/byte-solar-1.0.3.bsu"
 }
