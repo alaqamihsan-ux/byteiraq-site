@@ -1,6 +1,6 @@
 {
- "version": "1.0.6",
- "notes": "تثبيت البرنامج كتطبيق على الموبايل (كروم وسفاري) بزر «تثبيت التطبيق» · رابط آمن HTTPS من Tailscale حتى يقبل كروم التثبيت بالأندرويد · صفحة واضحة إذا الموبايل ما وصل للحاسبة",
+ "version": "1.0.7",
+ "notes": "اسم وأيقونة التطبيق على الموبايل صارت «بايت للطاقة الشمسية» · إصلاح القائمة على شاشة الموبايل",
  "date": "2026-11-18",
- "url": "https://alaqamihsan-ux.github.io/byteprog/updates/byte-solar-1.0.6.bsu"
+ "url": "https://alaqamihsan-ux.github.io/byteprog/updates/byte-solar-1.0.7.bsu"
 }
