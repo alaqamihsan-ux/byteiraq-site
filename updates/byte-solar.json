@@ -1,6 +1,6 @@
 {
- "version": "1.0.5",
- "notes": "فتح البرنامج من الموبايل من أي مكان عبر الإنترنت باستخدام Tailscale (الإعدادات ← الشبكة) · قائمة مطوية على شاشة الموبايل · إصلاح حقل المنفذ (Port)",
- "date": "2026-11-17",
- "url": "https://alaqamihsan-ux.github.io/byteprog/updates/byte-solar-1.0.5.bsu"
+ "version": "1.0.6",
+ "notes": "تثبيت البرنامج كتطبيق على الموبايل (كروم وسفاري) بزر «تثبيت التطبيق» · رابط آمن HTTPS من Tailscale حتى يقبل كروم التثبيت بالأندرويد · صفحة واضحة إذا الموبايل ما وصل للحاسبة",
+ "date": "2026-11-18",
+ "url": "https://alaqamihsan-ux.github.io/byteprog/updates/byte-solar-1.0.6.bsu"
 }
