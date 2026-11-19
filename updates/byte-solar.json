@@ -1,6 +1,1 @@
-{
- "version": "1.0.7",
- "notes": "اسم وأيقونة التطبيق على الموبايل صارت «بايت للطاقة الشمسية» · إصلاح القائمة على شاشة الموبايل",
- "date": "2026-11-18",
- "url": "https://alaqamihsan-ux.github.io/byteprog/updates/byte-solar-1.0.7.bsu"
-}
+{"version": "1.0.8", "notes": "تقرير القاصة يعرض الموجود بالقاصة فقط، حذف كارتات تقرير المشتريات، شريط مجموع وربح المفرد والجملة تحت كل مادة", "date": "2026-11-19", "url": "https://github.com/alaqamihsan-ux/byteprog/releases/download/solar-v1.0.8/byte-solar-1.0.8.bsu"}
