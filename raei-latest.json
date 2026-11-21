@@ -1,8 +1,8 @@
 {
  "app": "raei-eggs",
- "version": "2.2.0",
- "url": "https://alaqamihsan-ux.github.io/byteprog/RaeiEggs-Update-2.2.0.buc",
+ "version": "2.2.1",
+ "url": "https://alaqamihsan-ux.github.io/byteprog/RaeiEggs-Update-2.2.1.buc",
  "setup": "https://github.com/alaqamihsan-ux/byteprog/releases/download/raei-v2.1.0/RaeiEggs-Setup-2.1.0.exe",
- "notes": "أصناف جديدة (عادي، دبل صفار...) وتعبئات مختلفة لكل صنف (كارتون 4 أو 12 طبقة، طبقة 15 أو 30 بيضة)، مستوى البيض المفرد، أزرار فتح وغلق الكارتون وفتح وتكملة الطبقة، البيع بالبيضة، تقارير حسب الصنف واللون",
+ "notes": "شاشة رسومية لفتح وغلق الكراتين والطبقات حسب المورد، إرسال الفاتورة وكشف الحساب والتقرير PDF بالواتساب تلقائياً (WhatsApp Business API) وإرسال التقرير اليومي للمدير، إضافة دين يدوي، رصيد البيض الافتتاحي وفلوسه حسب المورد، المجموع الكلي بالكارتون والطبقة والبيضة",
  "date": "2026-11-21"
 }
