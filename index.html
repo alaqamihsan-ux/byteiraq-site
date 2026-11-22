@@ -674,5 +674,34 @@ f.addEventListener('submit',e=>{e.preventDefault();
 })();
 </script>
 <!-- نهاية عداد دقّة -->
+<!-- عداد زوار الموقع -->
+<style>
+#dqVisits{display:flex;justify-content:center;margin:14px 0 6px;direction:rtl;font-family:Cairo,Tajawal,sans-serif}
+#dqVisits .bx{display:inline-flex;align-items:center;gap:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:8px 16px}
+#dqVisits .ic{width:34px;height:34px;border-radius:50%;background:#2f6bff;display:flex;align-items:center;justify-content:center}
+#dqVisits .lb{font:700 13px Cairo,Tajawal,sans-serif;color:#c8d6f5}
+#dqVisits .num{display:flex;direction:ltr;gap:3px}
+#dqVisits .dg{background:#0a1a4f;border:1px solid #112a78;border-radius:6px;min-width:24px;padding:2px 4px;font:900 18px Cairo,Tajawal,sans-serif;color:#22d3ee;text-align:center}
+</style>
+<script>
+(function(){
+  var START=12457, API='https://abacus.jasoncameron.dev/';
+  var f=document.querySelector('footer .wrap')||document.querySelector('footer');if(!f)return;
+  var w=document.createElement('div');w.id='dqVisits';w.style.display='none';
+  w.innerHTML='<div class="bx"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><span class="lb">عدد زوار الموقع</span><div class="num"></div></div>';
+  var all=f.querySelectorAll('*'),copy=null;
+  for(var i=all.length-1;i>=0;i--){if(all[i].children.length===0&&all[i].textContent.indexOf('جميع الحقوق')>-1){copy=all[i];break;}}
+  if(copy)copy.parentNode.insertBefore(w,copy);else f.appendChild(w);
+  var seen=false;try{seen=sessionStorage.getItem('dqVisited')==='1';}catch(e){}
+  fetch(API+(seen?'get':'hit')+'/byteiraq/home-visits').then(function(r){return r.json();}).then(function(d){
+    if(typeof d.value!=='number')return;
+    try{sessionStorage.setItem('dqVisited','1');}catch(e){}
+    var s=String(START+d.value);while(s.length<6)s='0'+s;
+    w.querySelector('.num').innerHTML=s.split('').map(function(c){return '<span class="dg">'+c+'</span>';}).join('');
+    w.style.display='';
+  }).catch(function(){});
+})();
+</script>
+<!-- نهاية عداد زوار الموقع -->
 </body>
 </html>
