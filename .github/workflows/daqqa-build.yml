@@ -1,0 +1,80 @@
+name: Build Daqqa Pharmacy Setup
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/daqqa-build.yml']
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: windows-2022
+    defaults:
+      run:
+        shell: bash
+    env:
+      GH_TOKEN: ${{ github.token }}
+      R: ${{ github.repository }}
+      V: '1.0.11'
+      EV: '33.2.1'
+    steps:
+      - name: Get source
+        run: |
+          id=$(gh api "repos/$R/releases" --jq '.[] | select(.name=="daqqa-src") | .assets[] | select(.name|endswith(".zip")) | .id' | head -1)
+          gh api -H "Accept: application/octet-stream" "repos/$R/releases/assets/$id" > src.zip
+          7z x -y -osrc src.zip > /dev/null
+          ls src
+      - name: Assemble app
+        run: |
+          S=$(ls -d src/*/ | head -1)
+          curl -sSL -o e.zip "https://github.com/electron/electron/releases/download/v$EV/electron-v$EV-win32-x64.zip"
+          mkdir -p app/BytePharmacy
+          7z x -y -oapp/BytePharmacy e.zip > /dev/null
+          mv app/BytePharmacy/electron.exe app/BytePharmacy/BytePharmacy.exe
+          rm -f app/BytePharmacy/resources/default_app.asar
+          mkdir -p app/BytePharmacy/resources/app
+          cp -r "$S"pos-app/. app/BytePharmacy/resources/app/
+          cp "$S"BytePharmacy-Update-$V.bpu "$S"pharmacy-latest.json . || true
+          curl -sSL -o Arabic.isl https://raw.githubusercontent.com/jrsoftware/issrc/main/Files/Languages/Unofficial/Arabic.isl
+      - name: Build installer
+        run: |
+          printf '\xEF\xBB\xBF' > d.iss
+          cat >> d.iss <<'EOF'
+          [Setup]
+          AppId={{B7E1C2A4-5D3F-4E8A-9C21-DA00A0FA1011}
+          AppName=دقة للصيدليات
+          AppVersion=1.0.11
+          AppPublisher=BYTE - Eng. Ihsan Al-Akkam
+          DefaultDirName={sd}\Daqqa\BytePharmacy
+          DisableDirPage=no
+          DisableProgramGroupPage=yes
+          DefaultGroupName=دقة للصيدليات
+          PrivilegesRequired=admin
+          ArchitecturesAllowed=x64compatible
+          ArchitecturesInstallIn64BitMode=x64compatible
+          OutputDir=out
+          OutputBaseFilename=DaqqaPharmacy-Setup-1.0.11
+          SetupIconFile=app\BytePharmacy\resources\app\icon.ico
+          UninstallDisplayIcon={app}\resources\app\icon.ico
+          Compression=lzma2/ultra64
+          SolidCompression=yes
+          WizardStyle=modern
+          CloseApplications=force
+          [Languages]
+          Name: "ar"; MessagesFile: "Arabic.isl"
+          [Tasks]
+          Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"
+          [Files]
+          Source: "app\BytePharmacy\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+          [Icons]
+          Name: "{autodesktop}\دقة للصيدليات"; Filename: "{app}\BytePharmacy.exe"; IconFilename: "{app}\resources\app\icon.ico"; Tasks: desktopicon
+          Name: "{autoprograms}\دقة للصيدليات"; Filename: "{app}\BytePharmacy.exe"; IconFilename: "{app}\resources\app\icon.ico"
+          [Run]
+          Filename: "{app}\BytePharmacy.exe"; Description: "{cm:LaunchProgram,دقة للصيدليات}"; Flags: nowait postinstall skipifsilent
+          EOF
+          "/c/Program Files (x86)/Inno Setup 6/ISCC.exe" d.iss
+          ls -la out
+      - name: Publish release
+        run: |
+          gh release delete "daqqa-v$V" -y --cleanup-tag -R "$R" 2>/dev/null || true
+          printf 'دقّة للصيدليات — من BYTE للحلول البرمجية\n\nنزّل DaqqaPharmacy-Setup-%s.exe وشغّله: تالي ← تالي، تختار مكان التنصيب، ويسوي اختصار على سطح المكتب.\nللدعم والتفعيل: واتساب 07867492096\n' "$V" > notes.txt
+          gh release create "daqqa-v$V" out/DaqqaPharmacy-Setup-$V.exe $(ls BytePharmacy-Update-*.bpu 2>/dev/null) -R "$R" --target "$GITHUB_SHA" --title "دقّة للصيدليات $V" --notes-file notes.txt
