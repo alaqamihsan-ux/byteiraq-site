@@ -1,181 +1,250 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>البرامج | بايت</title>
-<meta name="description" content="برامج بايت: الكاشير، إدارة المدارس، سكرتارية الأطباء، الحضور والانصراف، الأقساط، ومحطات الوقود.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>برامجنا | دقّة · BYTE للحلول البرمجية</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="style.css">
-<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Tajawal','Cairo',system-ui,sans-serif;background:#030a24;color:#e6ecff;min-height:100vh;overflow-x:hidden;line-height:1.7}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font-family:inherit}
+.bg{position:fixed;inset:0;z-index:-1;background:
+ radial-gradient(900px 500px at 85% -10%,rgba(47,107,255,.35),transparent 60%),
+ radial-gradient(700px 500px at -10% 40%,rgba(139,92,246,.28),transparent 60%),
+ radial-gradient(700px 400px at 100% 100%,rgba(34,211,238,.15),transparent 60%),
+ linear-gradient(180deg,#030a24,#050d2e 50%,#030a24)}
+.bg:after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(120,160,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(120,160,255,.05) 1px,transparent 1px);background-size:46px 46px;mask-image:linear-gradient(180deg,#000,transparent 70%)}
+.wrap{width:min(1240px,92%);margin-inline:auto}
+/* header */
+.top{position:sticky;top:0;z-index:50;padding:14px 0;background:rgba(3,10,36,.72);backdrop-filter:blur(14px);border-bottom:1px solid rgba(120,160,255,.14)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.menu{display:flex;gap:6px;list-style:none;flex-wrap:wrap}
+.menu a{display:flex;align-items:center;gap:8px;padding:9px 16px;border-radius:12px;font-weight:700;font-size:15.5px;color:#cfd8ff;transition:.25s;border:1px solid transparent}
+.menu a:hover{background:rgba(47,107,255,.14);color:#fff}
+.menu a.active{background:linear-gradient(135deg,#2f6bff,#1d4ed8);color:#fff;border-color:rgba(147,197,253,.6);box-shadow:0 0 22px rgba(47,107,255,.55)}
+.brand{display:flex;align-items:center;gap:18px}
+.dq2{display:flex;align-items:center;gap:8px;font-family:'Cairo';font-weight:900;font-size:24px;color:#fff}
+.dq2 svg,.bx svg{width:40px;height:40px}
+.bx{display:flex;align-items:center;gap:10px}
+.bx .t{display:flex;flex-direction:column;line-height:1.1;text-align:left}
+.bx b{font-family:'Arial Black',Arial,sans-serif;font-size:26px;letter-spacing:1px;color:#fff}
+.bx small{font-size:11.5px;color:#9fb3ff}
+.sep{width:1px;height:34px;background:rgba(160,180,255,.3)}
+.burger{display:none;background:none;border:1px solid rgba(160,180,255,.3);color:#fff;border-radius:10px;padding:7px;cursor:pointer}
+/* hero */
+.hero{padding:56px 0 30px}
+.hero-in{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:30px}
+.hero h1{font-family:'Cairo';font-weight:900;font-size:clamp(40px,5.4vw,66px);line-height:1.15;background:linear-gradient(180deg,#fff,#bfe9ff);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 40px rgba(34,211,238,.25)}
+.hero .sub{font-size:clamp(18px,2vw,23px);color:#d5ddff;margin-top:10px;font-weight:500}
+.hero .art{display:flex;justify-content:center;filter:drop-shadow(0 20px 50px rgba(47,107,255,.45))}
+.hero .art svg{width:100%;max-width:520px;height:auto}
+.float{animation:fl 6s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-12px)}}
+.checks{list-style:none;margin-top:22px;display:grid;gap:10px}
+.checks li{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:600}
+.checks svg{color:#22d3ee;flex:none}
+/* glass cards */
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(140,170,255,.22);border-radius:22px;backdrop-filter:blur(10px);box-shadow:0 10px 40px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.08)}
+.sec{padding:30px 0 60px}
+.sec-t{display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Cairo';font-weight:800;font-size:30px;margin-bottom:26px;color:#fff}
+.sec-t svg{color:#22d3ee}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 26px;border-radius:12px;font-weight:800;font-size:16px;border:0;cursor:pointer;transition:.25s;color:#fff;background:linear-gradient(135deg,#2f6bff,#22d3ee);box-shadow:0 8px 26px rgba(47,107,255,.45)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(47,107,255,.6)}
+.btn.green{background:linear-gradient(135deg,#16a34a,#22c55e);box-shadow:0 8px 26px rgba(34,197,94,.4)}
+.btn.ghost{background:rgba(255,255,255,.06);border:1px solid rgba(160,190,255,.35);box-shadow:none}
+/* themed cards */
+.tc{--c1:#3b82f6;--c2:#93c5fd;position:relative;border-radius:22px;padding:26px 20px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;
+ background:linear-gradient(170deg,color-mix(in srgb,var(--c1) 30%,transparent),rgba(8,16,52,.85) 70%);border:1.5px solid color-mix(in srgb,var(--c1) 70%,transparent);
+ box-shadow:0 0 0 1px rgba(255,255,255,.03) inset,0 14px 40px rgba(0,0,0,.4),0 0 26px color-mix(in srgb,var(--c1) 35%,transparent);transition:.3s}
+.tc:hover{transform:translateY(-6px);box-shadow:0 18px 50px rgba(0,0,0,.45),0 0 40px color-mix(in srgb,var(--c1) 60%,transparent)}
+.tc .ico{color:var(--c2);filter:drop-shadow(0 0 14px var(--c1));margin-bottom:4px}
+.tc h3{font-family:'Cairo';font-weight:800;font-size:21px;color:#fff;line-height:1.35}
+.tc p{color:#d3dbff;font-size:15.5px}
+.tc .b{margin-top:auto;padding:9px 20px;border-radius:10px;font-weight:800;font-size:14.5px;color:#fff;background:linear-gradient(135deg,var(--c1),color-mix(in srgb,var(--c1) 55%,#000));box-shadow:0 6px 20px color-mix(in srgb,var(--c1) 45%,transparent)}
+.tag{position:absolute;top:14px;left:14px;font-size:12px;font-weight:800;padding:3px 10px;border-radius:20px;background:var(--c1);color:#fff}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+/* footer */
+footer{margin-top:40px;border-top:1px solid rgba(120,160,255,.14);background:rgba(2,8,28,.7);padding:34px 0 22px}
+.f-in{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}
+footer h4{font-family:'Cairo';font-size:18px;margin-bottom:10px;color:#fff}
+footer p,footer li{color:#aab8e8;font-size:15px}
+footer ul{list-style:none;display:grid;gap:6px}
+footer a:hover{color:#22d3ee}
+.f-c li{display:flex;align-items:center;gap:8px}
+.copy{text-align:center;color:#7d8cc0;font-size:14px;margin-top:24px;padding-top:16px;border-top:1px solid rgba(120,160,255,.1)}
+.copy b{font-family:Arial,sans-serif}
+.wa-fab{position:fixed;bottom:22px;left:22px;z-index:60;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#22c55e;color:#fff;box-shadow:0 8px 26px rgba(34,197,94,.55);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.55)}70%{box-shadow:0 0 0 16px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+.reveal.on{opacity:1;transform:none}
+@media (max-width:1000px){
+ .menu{display:none;position:absolute;top:100%;right:4%;left:4%;flex-direction:column;background:#071340;border:1px solid rgba(120,160,255,.25);border-radius:16px;padding:10px}
+ .menu.open{display:flex}
+ .burger{display:block}
+ .hero-in{grid-template-columns:1fr;text-align:center}
+ .checks{justify-items:center}
+ .g4{grid-template-columns:repeat(2,1fr)}
+ .g3{grid-template-columns:repeat(2,1fr)}
+ .f-in{grid-template-columns:1fr}
+ .bx small{display:none}
+}
+@media (max-width:600px){.g4,.g3{grid-template-columns:1fr}.dq2 b{display:none}}
+
+.panel{padding:30px 28px 26px;margin-top:10px}
+.filters{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin-bottom:30px}
+.flt{display:flex;align-items:center;gap:9px;padding:11px 26px;border-radius:14px;font-weight:800;font-size:16.5px;color:#dbe4ff;cursor:pointer;background:rgba(10,22,70,.75);border:1px solid rgba(140,170,255,.3);transition:.25s}
+.flt:hover{border-color:#60a5fa;color:#fff}
+.flt.on{background:linear-gradient(135deg,#2f6bff,#22d3ee);color:#fff;border-color:#a5f3fc;box-shadow:0 0 24px rgba(34,211,238,.5)}
+.car{position:relative}
+.track-w{overflow:hidden;padding:14px 4px 18px}
+.track{display:flex;gap:22px;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.track .slide{flex:0 0 calc((100% - 66px)/4);min-height:300px}
+.track .slide.hide{display:none}
+.car-nav{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:10px}
+.cbtn{width:50px;height:50px;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:#fff;background:rgba(10,22,70,.85);border:1.5px solid rgba(147,197,253,.55);box-shadow:0 0 18px rgba(47,107,255,.35);transition:.25s}
+.cbtn:hover{background:#2f6bff}
+.cbtn:disabled{opacity:.35;cursor:default;background:rgba(10,22,70,.85)}
+.dots{display:flex;gap:10px}
+.dots i{width:11px;height:11px;border-radius:50%;background:#1e3a8a;cursor:pointer;transition:.25s}
+.dots i.on{background:#22d3ee;box-shadow:0 0 12px #22d3ee;width:26px;border-radius:8px}
+.count{text-align:center;color:#9fb3ff;margin-top:8px;font-size:14.5px}
+@media (max-width:1000px){.track .slide{flex-basis:calc((100% - 22px)/2)}}
+@media (max-width:600px){.track .slide{flex-basis:100%}.panel{padding:22px 14px}}
+</style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <linearGradient id="gB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
-    <symbol id="logoB" viewBox="0 0 64 64"><path d="M10 8h24c10 0 17 6 17 14 0 5-3 9-7 11 6 2 10 7 10 13 0 9-8 16-19 16H10z" fill="url(#gB)"/><path d="M22 18h10c4 0 6 2 6 5s-2 5-6 5H22zM22 36h12c4 0 7 2 7 6s-3 6-7 6H22z" fill="#050d2e"/><path d="M4 50c14 4 34 2 52-14-6 16-26 26-52 14z" fill="#fff" opacity=".9"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  </defs>
-</svg>
-
-<header class="top">
-  <div class="wrap nav">
-    <a href="index.html" class="logo" aria-label="بايت للحلول البرمجية"><svg width="52" height="52"><use href="#logoB"/></svg><span class="logo-txt"><b>بايت</b><i>Byte</i><small>للحلول البرمجية</small></span></a>
-    <ul class="menu" id="menu">
-      <li><a href="index.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>الرئيسية</a></li>
-      <li><a href="programs.html" class="active" aria-current="page"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>البرامج</a></li>
-      <li><a href="services.html">الخدمات</a></li>
-      <li><a href="pricing.html">الأسعار</a></li>
-      <li><a href="support.html">الدعم الفني</a></li>
-      <li><a href="about.html">من نحن</a></li>
-      <li><a href="contact.html">تواصل معنا</a></li>
-    </ul>
-    <div style="display:flex;gap:10px;align-items:center">
-      <a href="contact.html" class="btn btn-blue quote"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>طلب عرض سعر</a>
-      <button class="burger" id="burger" aria-label="القائمة" aria-expanded="false"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-    </div>
-  </div>
-</header>
-
+<div class="bg"></div>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="dqIco" viewBox="0 0 100 100"><rect x="3" y="3" width="94" height="94" rx="24" fill="#fff"/><rect x="15" y="13" width="17" height="17" rx="4" fill="#f97316"/><path d="M32 22H52Q77 22 77 47V80H31V59H64V47Q64 35 52 35H32Z" fill="#14205e"/></symbol>
+<symbol id="hexB" viewBox="0 0 100 100"><defs><linearGradient id="hxg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60a5fa"/><stop offset="1" stop-color="#1d4ed8"/></linearGradient></defs><polygon points="50,3 91,26.5 91,73.5 50,97 9,73.5 9,26.5" fill="url(#hxg)" stroke="#bfdbfe" stroke-width="2"/><polygon points="50,15 81,33 81,67 50,85 19,67 19,33" fill="#0b1a5c"/><text x="50" y="66" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="46" fill="#fff">B</text></symbol>
+</defs></svg>
+<header class="top"><div class="wrap nav">
+<ul class="menu" id="menu"><li><a href="index.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>الرئيسية</a></li><li><a href="services.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg>خدماتنا</a></li><li><a href="programs.html" class=active><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>برامجنا</a></li><li><a href="hosting.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01M11 6.5h6M11 17.5h6"/></svg>الاستضافة</a></li><li><a href="about.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14.5a5 5 0 0 1 4.5 5"/></svg>من نحن</a></li><li><a href="contact.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A18 18 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>اتصل بنا</a></li></ul>
+<button class="burger" id="burger" aria-label="القائمة"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></button>
+<div class="brand">
+ <a href="index.html" class="dq2" aria-label="دقّة"><svg><use href="#dqIco"/></svg><b>دقّة</b></a>
+ <span class="sep"></span>
+ <a href="index.html" class="bx" aria-label="BYTE"><span class="t"><b>BYTE</b><small>حلول برمجية متكاملة</small></span><svg><use href="#hexB"/></svg></a>
+</div></div></header>
 <main>
-<div class="page-hero"><div class="wrap">
-  <div class="crumbs"><a href="index.html">الرئيسية</a> / البرامج</div>
-  <h1>برامجنا</h1><p>أنظمة جاهزة للعمل باللغة العربية، كلها تعمل بدون إنترنت ويمكن تخصيصها حسب نشاطك.</p>
-</div></div><section><div class="wrap"><article class="detail" id="hospital" style="--c:#1d4ed8;--soft:#e8f0ff">
-  <div class="art" style="background:linear-gradient(160deg,#dbeafe,#1e3a8a);padding:10px;position:relative;overflow:hidden"><img src="byte-hospital.jpg" alt="واجهة نظام بايت لإدارة المستشفيات" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:right top;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.25)"><span style="position:absolute;top:16px;left:16px;background:#f59e0b;color:#fff;font-weight:800;padding:6px 14px;border-radius:999px;box-shadow:0 4px 12px rgba(0,0,0,.2)">قريباً جداً</span></div>
-  <div>
-    <h2>نظام بايت لإدارة المستشفيات الكبيرة <span style="display:inline-block;vertical-align:middle;font-size:14px;background:#fef3c7;color:#b45309;border:1px solid #f59e0b;border-radius:999px;padding:3px 12px;margin-inline-start:6px">قريباً جداً</span></h2>
-    <p>Byte Hospital — نظام متكامل لإدارة المستشفيات الأهلية والكبيرة، من استقبال المريض إلى الفاتورة والتقارير.</p>
-    <ul class="feat"><li><svg width="16" height="16"><use href="#i-check"/></svg>ملفات المرضى والدخول والخروج</li><li><svg width="16" height="16"><use href="#i-check"/></svg>إدارة الأطباء والعيادات الخارجية</li><li><svg width="16" height="16"><use href="#i-check"/></svg>المواعيد والطوابير</li><li><svg width="16" height="16"><use href="#i-check"/></svg>الطوارئ والأجنحة والأسرّة</li><li><svg width="16" height="16"><use href="#i-check"/></svg>العمليات الجراحية والتمريض</li><li><svg width="16" height="16"><use href="#i-check"/></svg>المختبر والأشعة والصيدلية</li><li><svg width="16" height="16"><use href="#i-check"/></svg>المخازن والمشتريات</li><li><svg width="16" height="16"><use href="#i-check"/></svg>الموظفون والرواتب</li><li><svg width="16" height="16"><use href="#i-check"/></svg>التأمين الصحي والحسابات والفواتير</li><li><svg width="16" height="16"><use href="#i-check"/></svg>الصندوق والمصاريف والتقارير</li></ul>
-    <div class="acts"><a href="https://wa.me/9647867492096?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20%D9%86%D8%B8%D8%A7%D9%85%20%D8%A8%D8%A7%D9%8A%D8%AA%20%D9%84%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D8%B4%D9%81%D9%8A%D8%A7%D8%AA%20(Byte%20Hospital)." target="_blank" rel="noopener" class="btn btn-blue">احجز نسختك / استفسر عبر الواتساب</a></div>
-  </div>
-</article>
-<article class="detail" id="fuel" style="--c:#15803d;--soft:#e9f9ee">
-<div class="art" style="background:linear-gradient(160deg,#dcfce7,#064e3b)"><svg viewBox="0 0 120 80"><rect x="8" y="10" width="104" height="9" rx="3" fill="#064e3b"/><rect x="14" y="19" width="5" height="53" fill="#065f46"/><rect x="101" y="19" width="5" height="53" fill="#065f46"/><rect x="36" y="28" width="30" height="44" rx="4" fill="#fff"/><rect x="41" y="33" width="20" height="12" rx="2" fill="#22c55e"/><path d="M51 50c4 5 4 9 0 11-4-2-4-6 0-11z" fill="#16a34a"/><path d="M66 36h8l4 4v20" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="78" cy="62" r="3" fill="#fff"/><rect x="30" y="70" width="42" height="4" rx="2" fill="#d1fae5"/><text x="88" y="52" font-size="10" font-weight="bold" fill="#facc15" font-family="Arial">A</text><text x="88" y="64" font-size="10" font-weight="bold" fill="#f87171" font-family="Arial">B</text></svg></div>
-<div>
-<h2>بايت لإدارة محطات الوقود <span style="display:inline-block;vertical-align:middle;font-size:14px;background:#dcfce7;color:#15803d;border:1px solid #22c55e;border-radius:999px;padding:3px 12px;margin-inline-start:6px">جديد</span></h2>
-<p>برنامج متكامل لمحطات الوقود: الشفتات والعدادات، الخزانات والمضخات، المبيعات والمشتريات والصندوق والديون. يعمل على ويندوز، والأجهزة الثانية تتصل بيه من المتصفح.</p>
-<ul class="feat"><li><svg width="16" height="16"><use href="#i-check"/></svg>الشفتات وقراءة العدادات (يمين ويسار) لكل مضخة</li><li><svg width="16" height="16"><use href="#i-check"/></svg>الخزانات والمضخات وأنواع الوقود والأسعار</li><li><svg width="16" height="16"><use href="#i-check"/></svg>استلام الوقود من الصهاريج والمجهزين</li><li><svg width="16" height="16"><use href="#i-check"/></svg>مبيعات نقد وآجل وحسابات العملاء والديون</li><li><svg width="16" height="16"><use href="#i-check"/></svg>المخزون (زيوت ومواد) ووصولات البيع والشراء</li><li><svg width="16" height="16"><use href="#i-check"/></svg>الصندوق والمصاريف والإيرادات</li><li><svg width="16" height="16"><use href="#i-check"/></svg>الموظفون والرواتب</li><li><svg width="16" height="16"><use href="#i-check"/></svg>تقارير الشفت والمضخة والتقارير اليومية، طباعة A4 و POS</li><li><svg width="16" height="16"><use href="#i-check"/></svg>سيرفر وكلاينت لأكثر من جهاز (كمبيوتر، تابلت، موبايل) + نسخ احتياطي كل ساعة</li></ul>
-<div class="upd"><div class="upd-h"><b>🔄 التحديثات</b><span>الإصدار الحالي: 1.0.0</span></div><ul><li>الإصدار الأول: سيرفر وكلاينت، التفعيل بالسيريل، التحديثات عن طريق الإنترنت ومن ملف .buc، الخطوط وألوان الواجهة</li></ul><p>البرنامج يلگى التحديثات الجديدة من الموقع: من داخل البرنامج ← الإعدادات ← التحديثات ← «فحص التحديثات من الإنترنت». البيانات تبقى مثل ما هي.</p></div>
-<div class="acts"><a href="https://github.com/alaqamihsan-ux/byteprog/releases/download/fuel-v1.0.0/ByteFuel-Setup-1.0.0.exe" class="btn btn-green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg>تحميل البرنامج (ويندوز)</a><a href="https://wa.me/9647867492096?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1%20%D9%84%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%A8%D8%A7%D9%8A%D8%AA%20%D9%84%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9%20%D9%85%D8%AD%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D9%88%D9%82%D9%88%D8%AF." target="_blank" rel="noopener" class="btn btn-blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.7-.1 1.3z"/></svg>اطلب عرض سعر</a><a href="https://wa.me/9647867492096?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%AD%D9%85%D9%91%D9%84%D8%AA%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%A8%D8%A7%D9%8A%D8%AA%20%D9%84%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9%20%D9%85%D8%AD%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D9%88%D9%82%D9%88%D8%AF%20%D9%88%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D9%81%D8%B9%D9%8A%D9%84." target="_blank" rel="noopener" class="btn btn-line"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.7-.1 1.3z"/></svg>جرّبه مجاناً 7 أيام</a></div>
-</div>
-</article>
-<article class="detail" id="solar" style="--c:#c2410c;--soft:#fff3e8">
-<div class="art" style="background:linear-gradient(160deg,#fde68a,#0a1a4f);padding:10px"><img src="byte-solar.jpg" alt="واجهة برنامج بايت لإدارة مبيعات الطاقة الشمسية" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:right top;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.25)"></div>
-<div>
-<h2>بايت لإدارة مبيعات الطاقة الشمسية <span style="display:inline-block;vertical-align:middle;font-size:14px;background:#dcfce7;color:#15803d;border:1px solid #22c55e;border-radius:999px;padding:3px 12px;margin-inline-start:6px">جديد</span></h2>
-<p>برنامج متكامل لمحلات ومكاتب الطاقة الشمسية: ألواح، انفرترات، بطاريات وملحقاتها — من الشراء إلى البيع والضمان والحسابات. يعمل على ويندوز.</p>
-<ul class="feat"><li><svg width="16" height="16"><use href="#i-check"/></svg>بيع سريع بالباركود ومسح سيريال كل جهاز</li><li><svg width="16" height="16"><use href="#i-check"/></svg>متابعة ضمان كل جهاز وكم باقي عليه بالمسح</li><li><svg width="16" height="16"><use href="#i-check"/></svg>دفعات شراء بأسعار وموردين مختلفين (الأقدم يُباع أولاً)</li><li><svg width="16" height="16"><use href="#i-check"/></svg>أسعار مفرد وجملة وكارتونة ونسبة ربح على سعر الشراء</li><li><svg width="16" height="16"><use href="#i-check"/></svg>القاصة ورأس المال والمصاريف وتقارير الأرباح باليوم</li><li><svg width="16" height="16"><use href="#i-check"/></svg>حسابات الزبائن والديون وتسديد بالباركود على الوصل</li><li><svg width="16" height="16"><use href="#i-check"/></svg>الوصولات الورقية للموردين بالسكانر أو صورة الموبايل</li><li><svg width="16" height="16"><use href="#i-check"/></svg>سيرفر وكلاينت لأكثر من حاسبة + نسخ احتياطي كل ساعة</li></ul>
-<div class="upd"><div class="upd-h"><b>🔄 التحديثات</b><span>آخر تحديث: الإصدار 1.0.7</span></div><ul><li>اسم وأيقونة التطبيق على الموبايل صارت «بايت للطاقة الشمسية»</li><li>إصلاح القائمة على شاشة الموبايل</li><li>تثبيت البرنامج كتطبيق على الموبايل (كروم وسفاري) بزر «📲 تثبيت التطبيق» وأيقونة على الشاشة الرئيسية</li><li>رابط آمن HTTPS من Tailscale حتى يقبل كروم التثبيت بالأندرويد (الإعدادات ← الشبكة)</li><li>فتح البرنامج من الموبايل من أي مكان عبر الإنترنت باستخدام Tailscale المجاني (الإعدادات ← الشبكة) مع شرح خطوة بخطوة</li><li>قائمة مطوية على شاشة الموبايل</li><li>فوارز الآلاف بكل حقول الأرقام (مثل 15,500 و 1,150,000) حتى تميّز الآحاد والعشرات والمئات بسهولة</li><li>زر «حذف» لكل إدخال بصفحة الوارد (شراء): يُنقص الكمية من المخزن ويُرجع المبلغ للقاصة ويحذف باركودات الأجهزة غير المباعة</li><li>بطاقات لوحة التحكم والجداول والعناوين صارت تتلوّن حسب لون الواجهة المختار (فاتح وداكن)</li><li>زر «ألوان الواجهة» بالشريط الجانبي لتغيير الألوان بضغطة وحدة</li><li>ألوان متعددة للواجهة: 10 ألوان جاهزة + وضع داكن + ألوان تختارها بنفسك</li><li>المستخدمين والأدوار: البائع يبيع فقط بدون ما يشوف أسعار الشراء والمخزن والأرباح</li><li>تسجيل دخول بكلمة سر، واسم البائع ينحفظ بالفاتورة وتقرير المبيعات حسب البائع</li><li>إضافة أجور وخدمات بالفاتورة بدون مخزن: أجور عمال، نقل، كرين، تحميل، تنصيب</li><li>الإعدادات صارت بتبويبات مرتبة: المحل، الفاتورة، الألوان، المستخدمين، الأجور، الشبكة، النسخ، التحديثات، الترخيص</li></ul><a href="updates/byte-solar-1.0.7.bsu" download class="btn btn-line">تحميل التحديث (.bsu)</a><p>للزبائن اللي عندهم البرنامج: من داخل البرنامج ← الإعدادات ← التحديثات ← «فحص التحديثات عبر الإنترنت»، أو «تحديث يدوي من ملف» واختار الملف. البيانات تبقى مثل ما هي.</p></div>
-<div class="acts"><a href="https://github.com/alaqamihsan-ux/byteprog/releases/download/solar-v1.0.1/ByteSolar-Setup-1.0.1.exe" class="btn btn-green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg>تحميل البرنامج (ويندوز)</a><a href="https://wa.me/9647867492096?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1%20%D9%84%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%A8%D8%A7%D9%8A%D8%AA%20%D9%84%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9%20%D9%85%D8%A8%D9%8A%D8%B9%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B7%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%B4%D9%85%D8%B3%D9%8A%D8%A9." target="_blank" rel="noopener" class="btn btn-blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.7-.1 1.3z"/></svg>اطلب عرض سعر</a><a href="https://wa.me/9647867492096?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%AD%D9%85%D9%91%D9%84%D8%AA%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%A8%D8%A7%D9%8A%D8%AA%20%D9%84%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9%20%D9%85%D8%A8%D9%8A%D8%B9%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B7%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%B4%D9%85%D8%B3%D9%8A%D8%A9%20%D9%88%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D9%81%D8%B9%D9%8A%D9%84." target="_blank" rel="noopener" class="btn btn-line"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.7-.1 1.3z"/></svg>جرّبه مجاناً 7 أيام</a></div>
-</div>
-</article>
-<article class="detail" id="cashier" style="--c:#1d4ed8;--soft:#e8f0ff">
-  <div class="art" style="background:linear-gradient(160deg,#dbeafe,#1e3a8a);padding:10px"><img src="byte-cashier.jpg" alt="واجهة برنامج بايت كاشير — نقطة البيع" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:right top;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.25)"></div>
-  <div>
-    <h2>برنامج بايت كاشير</h2>
-    <p>نظام نقاط بيع متكامل للمحلات والأسواق والمخازن، يعمل على ويندوز وأندرويد.</p>
-    <ul class="feat"><li><svg width="16" height="16"><use href="#i-check"/></svg>بيع سريع بالباركود والبحث بالاسم</li><li><svg width="16" height="16"><use href="#i-check"/></svg>إدارة المخزون وتنبيه النواقص</li><li><svg width="16" height="16"><use href="#i-check"/></svg>فواتير مبيعات ومشتريات ومرتجعات</li><li><svg width="16" height="16"><use href="#i-check"/></svg>حسابات الزبائن والموردين والديون</li><li><svg width="16" height="16"><use href="#i-check"/></svg>تشغيل عدة أجهزة على شبكة واحدة</li><li><svg width="16" height="16"><use href="#i-check"/></svg>تقارير الأرباح اليومية والشهرية</li></ul>
-    <div class="upd"><div class="upd-h"><b>🔄 التحديثات</b><span>آخر تحديث: الإصدار 1.0.30</span></div><ul><li>الإعدادات صارت مرتبة بتبويبات: معلومات المحل، الوصل المطبوع، الطابعة، الألوان والخطوط، وكل قسم وحده</li><li>تحديث تلقائي عبر الإنترنت: البرنامج يلگى النسخة الجديدة من الموقع وحده ويطلع إشعار «تنزيل وتثبيت الآن»</li><li>فاتورة A4 مرتبة: كل رقم تحت عنوانه بالجدول بالضبط</li><li>إعدادات جديدة لورقة A4: عنوان الفاتورة، شكل الرأس، شكل الجدول (خطوط، مربعات، صفوف ملوّنة)، مكان المجاميع، اتجاه الورقة وهامشها وحجم الخط</li><li>إضافات A4: عمود الباركود، الوحدة بعمود منفصل، المبلغ كتابةً (فقط … دينار عراقي لا غير)، خانات التوقيع والختم، إطار، وملاحظات أو شروط أسفل الفاتورة</li><li>نسبة الربح % جنب سعر البيع: تكتب النسبة والسعر ينحسب من الكلفة تلقائياً</li><li>البرنامج يلگى التحديثات الجديدة من الموقع تلقائياً</li></ul><a href="ByteCashier-Update-1.0.30.bcu" download class="btn btn-line">تحميل التحديث (.bcu)</a><p>للزبائن اللي عندهم البرنامج: من داخل البرنامج ← الإعدادات ← تحديث البرنامج ← تحديث من ملف، واختار الملف. البيانات تبقى مثل ما هي. ومن الإصدار 1.0.30 وطالع البرنامج يلگى التحديث من الموقع وحده ويطلع إشعار بالشاشة.</p></div>
-    <div class="acts"><a href="https://github.com/alaqamihsan-ux/byteprog/releases/download/cashier-v1.0.27/ByteCashier-Setup-1.0.27.exe" class="btn btn-green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg>تحميل النسخة التجريبية</a><a href="contact.html?p=بايت كاشير" class="btn btn-blue">اطلب عرض سعر</a><a href="index.html#trial" class="btn btn-line">جرّبه مجاناً 7 أيام</a></div>
-  </div>
-</article>
-<article class="detail" id="school" style="--c:#15803d;--soft:#e9f9ee">
-  <div class="art" style="background:linear-gradient(160deg,#dbeafe,#0b1a3a);padding:10px"><img src="byte-school.jpg" alt="واجهة برنامج إدارة المدارس" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:right top;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.25)"></div>
-  <div>
-    <h2>برنامج إدارة المدارس</h2>
-    <p>نظام لإدارة المدارس الأهلية والحكومية من التسجيل إلى الشهادة.</p>
-    <ul class="feat"><li><svg width="16" height="16"><use href="#i-check"/></svg>ملفات الطلاب والصفوف والشعب</li><li><svg width="16" height="16"><use href="#i-check"/></svg>إدخال الدرجات وطباعة الشهادات</li><li><svg width="16" height="16"><use href="#i-check"/></svg>الأقساط والرسوم الدراسية</li><li><svg width="16" height="16"><use href="#i-check"/></svg>الغيابات والإنذارات</li><li><svg width="16" height="16"><use href="#i-check"/></svg>صلاحيات للإدارة والمحاسب والمعلمين</li><li><svg width="16" height="16"><use href="#i-check"/></svg>نسخ احتياطي تلقائي</li></ul>
-    
-    <div class="upd"><div class="upd-h"><b>🔄 التحديثات</b><span>آخر تحديث: الإصدار 1.2.5</span></div><ul><li>مواعيد الأقساط: توزيع القسط السنوي على أشهر مع موعد لكل دفعة</li><li>تخفيض للطالب (نسبة أو مبلغ أو قسط مخصص) مع ذكر السبب</li><li>القسط السنوي لكل صف</li><li>الجدول الدراسي وتقرير الحصص والساعات</li><li>استيراد الطلاب وتصديرهم بملفات إكسل</li><li>نصوص البرنامج باللغة العربية الفصحى</li></ul><a href="updates/school-1.2.5.bcu" download class="btn btn-line">تحميل التحديث (.bcu)</a><p>للزبائن اللي عندهم البرنامج: من داخل البرنامج ← الإعدادات ← تحديث البرنامج ← تحديث من ملف، واختار الملف. أو اضغط «تحديث من النت». البيانات تبقى مثل ما هي.</p></div>
-    <div class="sch-price" style="margin:14px 0 4px;border:1.5px solid var(--c);background:var(--soft);border-radius:14px;padding:12px 14px"><div style="font-weight:800;margin-bottom:8px;color:var(--c)">💰 الأسعار</div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px"><div style="background:#fff;border-radius:10px;padding:8px 10px;text-align:center"><div style="font-size:14px;color:#64748b;font-weight:700">اشتراك شهر</div><div style="font-size:20px;font-weight:800;color:var(--c)">30,000 <small style="font-size:13px">د.ع</small></div></div><div style="background:#fff;border-radius:10px;padding:8px 10px;text-align:center"><div style="font-size:14px;color:#64748b;font-weight:700">اشتراك سنة</div><div style="font-size:20px;font-weight:800;color:var(--c)">100,000 <small style="font-size:13px">د.ع</small></div></div><div style="background:#fff;border-radius:10px;padding:8px 10px;text-align:center"><div style="font-size:14px;color:#64748b;font-weight:700">نسخة دائمية</div><div style="font-size:20px;font-weight:800;color:var(--c)">300,000 <small style="font-size:13px">د.ع</small></div></div><div style="background:#fff;border-radius:10px;padding:8px 10px;text-align:center"><div style="font-size:14px;color:#64748b;font-weight:700">التحديث المطلوب</div><div style="font-size:20px;font-weight:800;color:var(--c)">50,000 <small style="font-size:13px">د.ع</small></div><div style="font-size:12px;color:#64748b">للتحديث الواحد</div></div></div></div>
-    <div class="acts"><a href="https://github.com/alaqamihsan-ux/byteprog/releases/download/school-v1.2.0/ByteSchool-EXE.zip" class="btn btn-green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg>تحميل البرنامج</a><a href="https://wa.me/9647867492096?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1%20%D9%84%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D8%AF%D8%A7%D8%B1%D8%B3%20(%D8%A8%D8%A7%D9%8A%D8%AA%20%D8%A7%D9%84%D9%85%D8%AF%D8%B1%D8%B3%D8%A9)." target="_blank" rel="noopener" class="btn btn-blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.7-.1 1.3z"/></svg>اطلب عرض سعر</a><a href="https://wa.me/9647867492096?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AA%D8%AC%D8%B1%D8%A8%D8%A9%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D8%AF%D8%A7%D8%B1%D8%B3%20(%D8%A8%D8%A7%D9%8A%D8%AA%20%D8%A7%D9%84%D9%85%D8%AF%D8%B1%D8%B3%D8%A9)%20%D9%85%D8%AC%D8%A7%D9%86%D8%A7%D9%8B%20%D9%84%D9%85%D8%AF%D8%A9%207%20%D8%A3%D9%8A%D8%A7%D9%85." target="_blank" rel="noopener" class="btn btn-line"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.7-.1 1.3z"/></svg>جرّبه مجاناً 7 أيام</a></div>
-  </div>
-</article>
-<article class="detail" id="clinic" style="--c:#c2410c;--soft:#fff3e8">
-  <div class="art" style="background:linear-gradient(160deg,#ffedd5,#bae6fd)"><svg viewBox="0 0 120 80"><rect x="30" y="8" width="52" height="66" rx="5" fill="#2563eb"/><rect x="35" y="14" width="42" height="56" rx="3" fill="#fff"/><rect x="46" y="4" width="20" height="10" rx="3" fill="#94a3b8"/><g fill="#0ea5e9"><circle cx="42" cy="26" r="3"/><circle cx="42" cy="38" r="3"/><circle cx="42" cy="50" r="3"/></g><g fill="#cbd5e1"><rect x="49" y="24" width="22" height="4" rx="2"/><rect x="49" y="36" width="22" height="4" rx="2"/><rect x="49" y="48" width="22" height="4" rx="2"/></g><path d="M86 20c10 0 12 20 4 30s-6 18 2 18" fill="none" stroke="#334155" stroke-width="4" stroke-linecap="round"/><circle cx="94" cy="68" r="6" fill="#64748b"/></svg></div>
-  <div>
-    <h2>برنامج سكرتارية الأطباء</h2>
-    <p>ينظم عمل العيادة: المواعيد والمراجعين والملفات الطبية.</p>
-    <ul class="feat"><li><svg width="16" height="16"><use href="#i-check"/></svg>حجز المواعيد وقائمة الانتظار</li><li><svg width="16" height="16"><use href="#i-check"/></svg>ملف لكل مريض مع الزيارات السابقة</li><li><svg width="16" height="16"><use href="#i-check"/></svg>كتابة وطباعة الوصفات</li><li><svg width="16" height="16"><use href="#i-check"/></svg>الواردات والمصروفات اليومية</li><li><svg width="16" height="16"><use href="#i-check"/></svg>بحث سريع بالاسم أو الهاتف</li><li><svg width="16" height="16"><use href="#i-check"/></svg>تقارير المراجعين والإيرادات</li></ul>
-    
-    <div class="acts"><a href="contact.html?p=سكرتارية الأطباء" class="btn btn-blue">اطلب عرض سعر</a><a href="index.html#trial" class="btn btn-line">جرّبه مجاناً 7 أيام</a></div>
-  </div>
-</article>
-<article class="detail" id="attendance" style="--c:#4338ca;--soft:#eef0ff">
-  <div class="art" style="background:linear-gradient(160deg,#ede9fe,#c4b5fd)"><svg viewBox="0 0 120 80"><rect x="34" y="6" width="52" height="70" rx="8" fill="#111827"/><rect x="41" y="13" width="38" height="24" rx="3" fill="#60a5fa"/><text x="60" y="30" font-size="11" text-anchor="middle" fill="#fff" font-family="Arial">08:00</text><g fill="#374151"><rect x="42" y="42" width="9" height="6" rx="1"/><rect x="55" y="42" width="9" height="6" rx="1"/><rect x="68" y="42" width="9" height="6" rx="1"/><rect x="42" y="51" width="9" height="6" rx="1"/><rect x="55" y="51" width="9" height="6" rx="1"/><rect x="68" y="51" width="9" height="6" rx="1"/></g><path d="M66 60c6-2 12 2 12 8v6H58v-6c0-3 3-7 8-8z" fill="#22d3ee"/></svg></div>
-  <div>
-    <h2>برنامج الحضور والانصراف</h2>
-    <p>متابعة دوام الموظفين وحساب التأخير والإضافي بدقة.</p>
-    <ul class="feat"><li><svg width="16" height="16"><use href="#i-check"/></svg>ربط مع أجهزة البصمة</li><li><svg width="16" height="16"><use href="#i-check"/></svg>جداول دوام وورديات مرنة</li><li><svg width="16" height="16"><use href="#i-check"/></svg>حساب التأخير والإجازات والإضافي</li><li><svg width="16" height="16"><use href="#i-check"/></svg>رواتب واستقطاعات</li><li><svg width="16" height="16"><use href="#i-check"/></svg>تقارير يومية وشهرية لكل موظف</li><li><svg width="16" height="16"><use href="#i-check"/></svg>تصدير وطباعة التقارير</li></ul>
-    
-    <div class="acts"><a href="contact.html?p=الحضور والانصراف" class="btn btn-blue">اطلب عرض سعر</a><a href="index.html#trial" class="btn btn-line">جرّبه مجاناً 7 أيام</a></div>
-  </div>
-</article>
-<article class="detail" id="installments" style="--c:#0e7490;--soft:#e6f8fb">
-  <div class="art" style="background:linear-gradient(160deg,#cffafe,#67e8f9)"><svg viewBox="0 0 120 80"><rect x="20" y="10" width="62" height="62" rx="6" fill="#fff"/><rect x="20" y="10" width="62" height="14" rx="6" fill="#0e7490"/><g fill="#cbd5e1"><rect x="28" y="32" width="10" height="9" rx="2"/><rect x="46" y="32" width="10" height="9" rx="2"/><rect x="64" y="32" width="10" height="9" rx="2"/><rect x="28" y="48" width="10" height="9" rx="2"/><rect x="64" y="48" width="10" height="9" rx="2"/></g><rect x="46" y="48" width="10" height="9" rx="2" fill="#f59e0b"/><circle cx="88" cy="56" r="16" fill="#facc15"/><text x="88" y="62" font-size="16" text-anchor="middle" font-weight="bold" fill="#854d0e" font-family="Arial">$</text></svg></div>
-  <div>
-    <h2>برنامج بايت للأقساط</h2>
-    <p>نظام محاسبة للبيع بالتقسيط يتابع الزبائن والدفعات والمتأخرين.</p>
-    <ul class="feat"><li><svg width="16" height="16"><use href="#i-check"/></svg>عقود تقسيط بجدول دفعات تلقائي</li><li><svg width="16" height="16"><use href="#i-check"/></svg>تسديد الأقساط وطباعة الوصولات</li><li><svg width="16" height="16"><use href="#i-check"/></svg>تنبيه بالأقساط المتأخرة</li><li><svg width="16" height="16"><use href="#i-check"/></svg>كفلاء ومعلومات الزبائن</li><li><svg width="16" height="16"><use href="#i-check"/></svg>كشف حساب لكل زبون</li><li><svg width="16" height="16"><use href="#i-check"/></svg>تقارير المبالغ المستحقة والمستلمة</li></ul>
-    
-    <div class="acts"><a href="contact.html?p=بايت للأقساط" class="btn btn-blue">اطلب عرض سعر</a><a href="index.html#trial" class="btn btn-line">جرّبه مجاناً 7 أيام</a></div>
-  </div>
-</article>
-<article class="detail" id="restaurant" style="--c:#7c3aed;--soft:#f3edff">
-  <div class="art" style="background:linear-gradient(160deg,#bbf7d0,#065f46);padding:10px"><img src="byte-restaurant.jpg" alt="واجهة برنامج بايت للمطاعم" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:right top;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.25)"></div>
-  <div>
-    <h2>برنامج بايت للمطاعم</h2>
-    <p>نظام كاشير للمطاعم والكافيهات: من الطلب إلى المطبخ إلى الفاتورة.</p>
-    <ul class="feat"><li><svg width="16" height="16"><use href="#i-check"/></svg>طلبات صالة وسفري وتوصيل</li><li><svg width="16" height="16"><use href="#i-check"/></svg>إدارة الطاولات وحالة كل طاولة</li><li><svg width="16" height="16"><use href="#i-check"/></svg>طباعة طلبات المطبخ تلقائياً</li><li><svg width="16" height="16"><use href="#i-check"/></svg>قائمة الطعام بالأصناف والأسعار</li><li><svg width="16" height="16"><use href="#i-check"/></svg>حسابات السواق والتوصيل</li><li><svg width="16" height="16"><use href="#i-check"/></svg>تقارير المبيعات اليومية والأصناف الأكثر طلباً</li></ul>
-    <div class="upd"><div class="upd-h"><b>🔄 التحديثات</b><span>آخر تحديث: الإصدار 2.2.7</span></div><ul><li>رقم الإصدار يظهر بالشاشة الرئيسية مع حالة التفعيل</li><li>خانة التفعيل والسيريال: رمز الجهاز والأيام المتبقية</li><li>الضغط على رقم الإصدار يفتح صفحة التفعيل</li></ul><a href="ByteRestaurant-Update-2.2.7.bcu" download class="btn btn-line">تحميل التحديث (.bcu)</a><p>للزبائن اللي عندهم البرنامج: من داخل البرنامج ← عامة ← التحديث والنسخة الاحتياطية ← تثبيت تحديث (.bcu)، واختار الملف. البيانات تبقى مثل ما هي.</p></div>
-    <div class="sch-price" style="margin:14px 0 4px;border:1.5px solid var(--c);background:var(--soft);border-radius:14px;padding:12px 14px"><div style="font-weight:800;margin-bottom:8px;color:var(--c)">💰 الأسعار</div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px"><div style="background:#fff;border-radius:10px;padding:8px 10px;text-align:center"><div style="font-size:14px;color:#64748b;font-weight:700">اشتراك شهر</div><div style="font-size:20px;font-weight:800;color:var(--c)">30,000 <small style="font-size:13px">د.ع</small></div></div><div style="background:#fff;border-radius:10px;padding:8px 10px;text-align:center"><div style="font-size:14px;color:#64748b;font-weight:700">اشتراك سنة</div><div style="font-size:20px;font-weight:800;color:var(--c)">150,000 <small style="font-size:13px">د.ع</small></div></div><div style="background:#fff;border-radius:10px;padding:8px 10px;text-align:center"><div style="font-size:14px;color:#64748b;font-weight:700">اشتراك دائم</div><div style="font-size:20px;font-weight:800;color:var(--c)">400,000 <small style="font-size:13px">د.ع</small></div></div></div></div>
-    <div class="acts"><a href="https://github.com/alaqamihsan-ux/byteprog/releases/download/restaurant-v1.0/ByteRestaurant-Setup-2.2.6.exe" class="btn btn-green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg>تحميل النسخة التجريبية</a><a href="https://wa.me/9647867492096?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1%20%D9%84%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%A8%D8%A7%D9%8A%D8%AA%20%D9%84%D9%84%D9%85%D8%B7%D8%A7%D8%B9%D9%85." target="_blank" rel="noopener" class="btn btn-blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.7-.1 1.3z"/></svg>اطلب عرض سعر</a><a href="https://wa.me/9647867492096?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AA%D8%AC%D8%B1%D8%A8%D8%A9%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%A8%D8%A7%D9%8A%D8%AA%20%D9%84%D9%84%D9%85%D8%B7%D8%A7%D8%B9%D9%85%20%D9%85%D8%AC%D8%A7%D9%86%D8%A7%D9%8B%20%D9%84%D9%85%D8%AF%D8%A9%207%20%D8%A3%D9%8A%D8%A7%D9%85." target="_blank" rel="noopener" class="btn btn-line"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.7-.1 1.3z"/></svg>جرّبه مجاناً 7 أيام</a></div>
-  </div>
-</article>
-<article class="detail" id="sales" style="--c:#b91c1c;--soft:#fdecec">
-  <div class="art" style="background:linear-gradient(160deg,#fee2e2,#fdba74)"><svg viewBox="0 0 120 80"><ellipse cx="60" cy="66" rx="46" ry="7" fill="#e5e7eb"/><path d="M22 62a38 34 0 0 1 76 0z" fill="#cbd5e1"/><path d="M30 60a30 28 0 0 1 22-27" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".7"/><circle cx="60" cy="25" r="5" fill="#94a3b8"/><rect x="14" y="60" width="92" height="5" rx="2.5" fill="#64748b"/><path d="M100 14v20M96 14v8a4 4 0 0 0 8 0v-8" fill="none" stroke="#b91c1c" stroke-width="2.5" stroke-linecap="round"/><path d="M12 14c5 0 6 10 0 14v8" fill="none" stroke="#b91c1c" stroke-width="2.5" stroke-linecap="round"/></svg></div>
-  <div>
-    <h2>برنامج بايت للمبيعات</h2>
-    <p>برنامج مبيعات ومخازن لمحلات الجملة والمفرد، يشتغل على جهاز واحد أو شبكة سيرفر وكلاينت.</p>
-    <ul class="feat"><li><svg width="16" height="16"><use href="#i-check"/></svg>أسعار مفرد وجملة وخاص لكل مادة</li><li><svg width="16" height="16"><use href="#i-check"/></svg>تعبئة كارتون ودزينة وقطعة بأسعار وباركود</li><li><svg width="16" height="16"><use href="#i-check"/></svg>أكثر من مخزن ونقل المواد بينهم</li><li><svg width="16" height="16"><use href="#i-check"/></svg>جرد وتسوية ومستندات التالف والمستهلك</li><li><svg width="16" height="16"><use href="#i-check"/></svg>حسابات العملاء والموردين والديون</li><li><svg width="16" height="16"><use href="#i-check"/></svg>تاريخ الصلاحية وحركة كل مادة</li></ul>
-    <div class="upd"><div class="upd-h"><b>🔄 التحديثات</b><span>آخر تحديث: الإصدار 1.3.0</span></div><ul><li>اسم الزبون يُكتب مباشرة بالفاتورة وينضاف للعملاء وحده</li><li>وحدات تعبئة (كارتون/دزينة/قطعة) بأسعار وباركود لكل وحدة</li><li>أسعار مفرد وجملة وخاص</li><li>أكثر من مخزن ونقل المواد بينهم</li><li>الصلاحية والبيانات الإضافية للمادة</li><li>مستندات الجرد والتالف والمستهلك وحركة المادة</li></ul><a href="ByteSales-Update-1.3.0.bcu" download class="btn btn-line">تحميل التحديث (.bcu)</a><p>للزبائن اللي عندهم البرنامج: من داخل البرنامج ← الإعدادات ← التحديثات ← اختيار ملف التحديث، واختار الملف. البيانات تبقى مثل ما هي.</p></div>
-    <div class="sch-price" style="margin:14px 0 4px;border:1.5px solid var(--c);background:var(--soft);border-radius:14px;padding:12px 14px"><div style="font-weight:800;margin-bottom:8px;color:var(--c)">💰 الأسعار</div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px"><div style="background:#fff;border-radius:10px;padding:8px 10px;text-align:center"><div style="font-size:14px;color:#64748b;font-weight:700">اشتراك شهر</div><div style="font-size:20px;font-weight:800;color:var(--c)">30,000 <small style="font-size:13px">د.ع</small></div></div><div style="background:#fff;border-radius:10px;padding:8px 10px;text-align:center"><div style="font-size:14px;color:#64748b;font-weight:700">اشتراك سنة</div><div style="font-size:20px;font-weight:800;color:var(--c)">150,000 <small style="font-size:13px">د.ع</small></div></div><div style="background:#fff;border-radius:10px;padding:8px 10px;text-align:center"><div style="font-size:14px;color:#64748b;font-weight:700">نسخة دائمية</div><div style="font-size:20px;font-weight:800;color:var(--c)">250,000 <small style="font-size:13px">د.ع</small></div></div></div></div>
-    <div class="acts"><a href="https://github.com/alaqamihsan-ux/byteprog/releases/download/sales-v1.0.0/ByteSales-Setup.zip" class="btn btn-green">تحميل البرنامج (ويندوز)</a><a href="https://wa.me/9647867492096?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1%20%D9%84%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%A8%D8%A7%D9%8A%D8%AA%20%D9%84%D9%84%D9%85%D8%A8%D9%8A%D8%B9%D8%A7%D8%AA." target="_blank" rel="noopener" class="btn btn-blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.7-.1 1.3z"/></svg>اطلب عرض سعر</a><a href="https://wa.me/9647867492096?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AA%D8%AC%D8%B1%D8%A8%D8%A9%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%A8%D8%A7%D9%8A%D8%AA%20%D9%84%D9%84%D9%85%D8%A8%D9%8A%D8%B9%D8%A7%D8%AA%20%D9%85%D8%AC%D8%A7%D9%86%D8%A7%D9%8B%20%D9%84%D9%85%D8%AF%D8%A9%207%20%D8%A3%D9%8A%D8%A7%D9%85." target="_blank" rel="noopener" class="btn btn-line"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.7-.1 1.3z"/></svg>جرّبه مجاناً 7 أيام</a></div>
-  </div>
-</article>
-<article class="detail" id="pharmacy" style="--c:#0f2a5c;--soft:#e8eef9"><div class="art" style="background:linear-gradient(160deg,#dbe7ff,#0f2a5c);padding:10px"><img src="1795321373380_image.png" alt="واجهة برنامج دقّة للصيدليات" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:right top;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.25)"></div><div><h2>برنامج دقّة للصيدليات</h2><p>نظام متكامل لإدارة الصيدليات — من BYTE للحلول البرمجية: بيع بالباركود، مخزون، صلاحيات، وصفات، وديون، ويشتغل على ويندوز بجهاز واحد أو شبكة.</p><ul class="feat"><li><svg width="16" height="16"><use href="#i-check"/></svg>قاعدة أدوية جاهزة (إحالات كيماديا + القائمة الوطنية + آلاف البراندات)</li><li><svg width="16" height="16"><use href="#i-check"/></svg>البيع بالعلبة أو بالشريط والحبة، والبحث بالاسم التجاري أو العلمي أو الباركود</li><li><svg width="16" height="16"><use href="#i-check"/></svg>البدائل بنفس المادة الفعالة تطلع تلقائياً إذا الدواء نفد</li><li><svg width="16" height="16"><use href="#i-check"/></svg>تنبيه الأدوية القريبة الانتهاء والنواقص</li><li><svg width="16" height="16"><use href="#i-check"/></svg>الوصفات الطبية والزبائن وطباعة ملصقات الباركود</li><li><svg width="16" height="16"><use href="#i-check"/></svg>الشراء من الشركات والمذاخر، وديون لنا وديون علينا</li><li><svg width="16" height="16"><use href="#i-check"/></svg>سيرفر وكلاينت لأكثر من حاسبة، وتحديث من الإنترنت</li></ul><div class="upd"><div class="upd-h"><b>🔄 التحديثات</b><span>آخر تحديث: الإصدار 1.0.11</span></div><ul><li>فصل اسم الدواء عن التركيز والشكل بقاعدة الأدوية</li><li>اختيار التركيز للبراندات اللي إلها أكثر من تركيز</li><li>تحديث تراكمي يشمل كل التحديثات من 1.0.0</li></ul><a href="https://github.com/alaqamihsan-ux/byteprog/releases/download/daqqa-v1.0.11/BytePharmacy-Update-1.0.11.bpu" class="btn btn-line">تحميل التحديث (.bpu)</a><p>للزبائن اللي عندهم البرنامج: من داخل البرنامج ← الإعدادات ← التحديثات ← تحديث من ملف. البيانات تبقى مثل ما هي.</p></div><div class="acts"><a href="https://github.com/alaqamihsan-ux/byteprog/releases/download/daqqa-v1.0.11/DaqqaPharmacy-Setup-1.0.11.exe" class="btn btn-green">تحميل البرنامج (ويندوز)</a><a href="https://wa.me/9647867492096?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%AF%D9%82%D9%91%D8%A9%20%D9%84%D9%84%D8%B5%D9%8A%D8%AF%D9%84%D9%8A%D8%A7%D8%AA" target="_blank" rel="noopener" class="btn btn-blue">اطلب السيريل / عرض سعر</a></div></div></article><h2 class="special-h" style="margin:34px 0 14px;font-size:26px;display:flex;align-items:center;gap:10px"><span style="width:8px;height:28px;border-radius:4px;background:#d97706;display:inline-block"></span>برامج خاصة</h2>
-<article class="detail" id="raei" style="--c:#d97706;--soft:#fff4e0">
-  <div class="art" style="background:linear-gradient(160deg,#fff7e6,#fcd34d)"><svg viewBox="0 0 120 80"><ellipse cx="60" cy="70" rx="46" ry="6" fill="#e5e7eb"/><path d="M18 40 L52 30 L102 40 L68 50z" fill="#f6c46b"/><path d="M18 40 V66 L68 76 V50z" fill="#e0a64b"/><path d="M68 50 L102 40 V66 L68 76z" fill="#c98a2e"/><ellipse cx="44" cy="22" rx="9" ry="11" fill="#fff" stroke="#e5d6c2"/><ellipse cx="62" cy="18" rx="9" ry="11" fill="#e9a868"/><ellipse cx="80" cy="23" rx="9" ry="11" fill="#fff" stroke="#e5d6c2"/></svg></div>
-  <div>
-    <h2>برنامج مكتب الراعي لبيع بيض المائدة</h2>
-    <p>برنامج خاص لمكاتب بيع بيض المائدة بالجملة والمفرد: بيع وشراء ومخزون بالكارتون والطبقة، ديون، تقارير، ويشتغل على ويندوز بجهاز واحد أو شبكة.</p>
-    <ul class="feat"><li><svg width="16" height="16"><use href="#i-check"/></svg>بيع بالكارتون والطبقة بالجملة والمفرد، وفتح الكارتون تلقائياً</li><li><svg width="16" height="16"><use href="#i-check"/></svg>بيض أبيض وأحمر لكل شركة، والمخزون حسب سعر الشراء القديم والجديد</li><li><svg width="16" height="16"><use href="#i-check"/></svg>شاشة كاشير سريعة وفواتير A4 وحرارية 80 ملم بباركود</li><li><svg width="16" height="16"><use href="#i-check"/></svg>ديون الزبائن والموردين، التلفيات، المصاريف والرصيد الافتتاحي</li><li><svg width="16" height="16"><use href="#i-check"/></svg>تقرير يومي بالدخل وفرق أسعار البيع والشراء</li><li><svg width="16" height="16"><use href="#i-check"/></svg>يشتغل على جهاز واحد أو شبكة سيرفر وكلاينت</li><li><svg width="16" height="16"><use href="#i-check"/></svg>نسخة احتياطية تلقائية كل ساعة واسترجاع تلقائي، وتحديث من الإنترنت</li></ul>
-    <div class="upd"><div class="upd-h"><b>🔄 التحديثات</b><span>آخر تحديث: الإصدار 2.1.0</span></div><ul><li>تفعيل بسيريل لكل جهاز</li><li>سيرفر وكلاينت على الشبكة المحلية</li><li>نسخ احتياطي كل ساعة واسترجاع تلقائي</li><li>تحديث تلقائي من الإنترنت</li><li>مثبّت يختار القرص ويعمل اختصار على سطح المكتب</li></ul><a href="RaeiEggs-Update-2.1.0.buc" download class="btn btn-line">تحميل التحديث (.buc)</a><p>للزبائن اللي عندهم البرنامج: من داخل البرنامج ← الإعدادات ← التحديث والنسخ الاحتياطية ← البحث عن تحديث، أو تحديث من ملف. البيانات تبقى مثل ما هي.</p></div>
-    <div class="acts"><a href="https://github.com/alaqamihsan-ux/byteprog/releases/download/raei-v2.1.0/RaeiEggs-Setup-2.1.0.exe" class="btn btn-green">تحميل البرنامج (ويندوز) — 102 ميغا</a><a href="https://wa.me/9647867492096?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D9%85%D9%83%D8%AA%D8%A8%20%D8%A7%D9%84%D8%B1%D8%A7%D8%B9%D9%8A%20%D9%84%D8%A8%D9%8A%D8%B9%20%D8%A8%D9%8A%D8%B6%20%D8%A7%D9%84%D9%85%D8%A7%D8%A6%D8%AF%D8%A9" target="_blank" rel="noopener" class="btn btn-blue">اطلب السيريل / عرض سعر</a></div>
-  </div>
-</article>
+<section class="hero"><div class="wrap hero-in">
+<div class="reveal"><h1>برامجنا</h1><p class="sub">مجموعة متكاملة من البرامج الإدارية والتجارية</p></div>
+<div class="art reveal"><svg viewBox="0 0 520 340" class="float">
+<defs><linearGradient id="lg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cbd5f5"/><stop offset="1" stop-color="#7c8bc4"/></linearGradient>
+<linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1a5c"/><stop offset="1" stop-color="#06103a"/></linearGradient>
+<radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#2f6bff" stop-opacity=".7"/><stop offset="1" stop-color="#2f6bff" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="260" cy="312" rx="240" ry="22" fill="url(#glow)"/>
+<rect x="78" y="20" width="364" height="232" rx="16" fill="url(#lg1)"/>
+<rect x="90" y="32" width="340" height="208" rx="8" fill="url(#scr)"/>
+<rect x="102" y="44" width="58" height="184" rx="6" fill="#0f2370"/>
+<g fill="#3b82f6" opacity=".9"><rect x="112" y="60" width="38" height="6" rx="3"/><rect x="112" y="78" width="30" height="6" rx="3" opacity=".6"/><rect x="112" y="96" width="34" height="6" rx="3" opacity=".6"/><rect x="112" y="114" width="28" height="6" rx="3" opacity=".6"/></g>
+<rect x="172" y="44" width="76" height="52" rx="8" fill="#123087"/><rect x="258" y="44" width="76" height="52" rx="8" fill="#123087"/><rect x="344" y="44" width="76" height="52" rx="8" fill="#123087"/>
+<circle cx="196" cy="70" r="12" fill="none" stroke="#22d3ee" stroke-width="5" stroke-dasharray="50 80"/><rect x="214" y="62" width="26" height="6" rx="3" fill="#93c5fd"/><rect x="214" y="74" width="18" height="5" rx="2.5" fill="#60a5fa"/>
+<rect x="268" y="56" width="40" height="7" rx="3.5" fill="#f472b6"/><rect x="268" y="70" width="56" height="12" rx="4" fill="#a78bfa" opacity=".8"/>
+<rect x="354" y="56" width="30" height="7" rx="3.5" fill="#34d399"/><rect x="354" y="70" width="56" height="12" rx="4" fill="#22d3ee" opacity=".7"/>
+<rect x="172" y="106" width="162" height="122" rx="8" fill="#0f2370"/>
+<g fill="#22d3ee"><rect x="186" y="186" width="12" height="30" rx="2"/><rect x="206" y="166" width="12" height="50" rx="2"/><rect x="226" y="176" width="12" height="40" rx="2"/><rect x="246" y="146" width="12" height="70" rx="2"/><rect x="266" y="156" width="12" height="60" rx="2"/><rect x="286" y="130" width="12" height="86" rx="2"/><rect x="306" y="140" width="12" height="76" rx="2"/></g>
+<polyline points="186,150 216,136 246,142 276,118 316,112" fill="none" stroke="#a78bfa" stroke-width="3"/>
+<rect x="344" y="106" width="76" height="122" rx="8" fill="#0f2370"/>
+<circle cx="382" cy="150" r="22" fill="none" stroke="#1e3a8a" stroke-width="9"/><circle cx="382" cy="150" r="22" fill="none" stroke="#22d3ee" stroke-width="9" stroke-dasharray="100 140" transform="rotate(-90 382 150)"/>
+<rect x="358" y="188" width="48" height="6" rx="3" fill="#60a5fa"/><rect x="358" y="202" width="36" height="6" rx="3" fill="#60a5fa" opacity=".5"/>
+<path d="M30 262h460l-26 34H56z" fill="url(#lg1)"/>
+<rect x="220" y="262" width="80" height="8" rx="4" fill="#5b6aa8"/>
+<path d="M56 296h408" stroke="#2f6bff" stroke-width="3" opacity=".8"/>
+</svg></div>
+</div></section><section class="sec"><div class="wrap"><div class="glass panel reveal">
+<div class="filters"><button class="flt on" data-f="all"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><circle cx="17.5" cy="17.5" r="3.5"/></svg>الكل</button><button class="flt" data-f="trade"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M3 4h2.5l2.2 11h11l2-8H6.3"/></svg>التجارية</button><button class="flt" data-f="medical"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/></svg>الطبية</button><button class="flt" data-f="admin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>الإدارية</button><button class="flt" data-f="service"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15h16M6 15a6 6 0 0 1 12 0M12 6V4M3 19h18"/></svg>الخدمية</button></div>
+<div class="car"><div class="track-w"><div class="track"><a class="tc slide" data-cat="service" href="program.html?id=fuel" style="--c1:#8b5cf6;--c2:#c4b5fd">
+<span class="tag">جديد</span>
+<span class="ico"><svg width="64" height="64" viewBox="0 0 48 48"><rect x="9" y="7" width="20" height="34" rx="4" fill="currentColor"/><rect x="13" y="11" width="12" height="9" rx="2" fill="#fff" opacity=".9"/><path d="M29 16h4l4 5v14a3 3 0 0 1-6 0v-8h-2" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><rect x="6" y="40" width="26" height="3" rx="1.5" fill="currentColor"/></svg></span><h3>إدارة محطة الوقود</h3><p>مبيعات الوقود والمخزون والشفتات</p>
+<span class="b">تفاصيل البرنامج</span></a><a class="tc slide" data-cat="medical" href="program.html?id=pharmacy" style="--c1:#14b8a6;--c2:#5eead4">
+<span class="tag">جديد</span>
+<span class="ico"><svg width="64" height="64" viewBox="0 0 48 48"><path d="M18 5h12v13h13v12H30v13H18V30H5V18h13z" fill="currentColor"/></svg></span><h3>إدارة الصيدلية</h3><p>المبيعات والمخزون والوصفات</p>
+<span class="b">تفاصيل البرنامج</span></a><a class="tc slide" data-cat="trade" href="program.html?id=sales" style="--c1:#f59e0b;--c2:#fcd34d">
 
-</div></section>
+<span class="ico"><svg width="64" height="64" viewBox="0 0 48 48"><path d="M5 8h5l4 22h22l4-15H12" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><circle cx="17" cy="38" r="3.5" fill="currentColor"/><circle cx="33" cy="38" r="3.5" fill="currentColor"/><rect x="17" y="17" width="18" height="8" rx="2" fill="currentColor" opacity=".6"/></svg></span><h3>إدارة المخزون والمبيعات</h3><p>تتبع المواد والكميات والمخازن</p>
+<span class="b">تفاصيل البرنامج</span></a><a class="tc slide" data-cat="trade" href="program.html?id=installments" style="--c1:#ec4899;--c2:#f9a8d4">
+
+<span class="ico"><svg width="64" height="64" viewBox="0 0 48 48"><rect x="5" y="9" width="38" height="30" rx="4" fill="currentColor"/><rect x="5" y="15" width="38" height="5" fill="#fff" opacity=".85"/><rect x="10" y="27" width="12" height="4" rx="2" fill="#fff" opacity=".85"/><circle cx="35" cy="30" r="4" fill="#fff" opacity=".7"/></svg></span><h3>إدارة العملاء والأقساط</h3><p>الديون والدفعات والحسابات</p>
+<span class="b">تفاصيل البرنامج</span></a><a class="tc slide" data-cat="trade" href="program.html?id=cashier" style="--c1:#3b82f6;--c2:#93c5fd">
+
+<span class="ico"><svg width="64" height="64" viewBox="0 0 48 48"><rect x="10" y="6" width="26" height="18" rx="3" fill="currentColor"/><rect x="14" y="10" width="7" height="4" rx="1" fill="#fff"/><rect x="23" y="10" width="9" height="4" rx="1" fill="#fff" opacity=".8"/><rect x="14" y="16" width="18" height="4" rx="1" fill="#fff" opacity=".6"/><rect x="5" y="30" width="32" height="10" rx="3" fill="currentColor"/><rect x="38" y="22" width="5" height="18" rx="2" fill="currentColor" opacity=".7"/></svg></span><h3>بايت كاشير</h3><p>نقاط بيع للمحلات والأسواق</p>
+<span class="b">تفاصيل البرنامج</span></a><a class="tc slide" data-cat="trade" href="program.html?id=solar" style="--c1:#f97316;--c2:#fdba74">
+<span class="tag">جديد</span>
+<span class="ico"><svg width="64" height="64" viewBox="0 0 48 48"><circle cx="34" cy="11" r="5" fill="#facc15"/><path d="M34 2v3M34 17v3M25 11h3M40 11h3M27.5 4.5l2 2M38.5 15.5l2 2M27.5 17.5l2-2M38.5 6.5l2-2" stroke="#facc15" stroke-width="2" stroke-linecap="round"/><path d="M8 24h26l6 16H2z" fill="currentColor"/><path d="M14 24l-3 16M24 24l1 16M5 32h33" stroke="#fff" stroke-width="1.6" opacity=".85"/></svg></span><h3>مبيعات الطاقة الشمسية</h3><p>بيع بالباركود والسيريال والضمان</p>
+<span class="b">تفاصيل البرنامج</span></a><a class="tc slide" data-cat="admin" href="program.html?id=school" style="--c1:#22c55e;--c2:#86efac">
+
+<span class="ico"><svg width="64" height="64" viewBox="0 0 48 48"><path d="M24 6L3 15l21 9 21-9z" fill="currentColor"/><path d="M11 20v8c0 3 6 6 13 6s13-3 13-6v-8l-13 6z" fill="currentColor" opacity=".75"/><path d="M42 16v11" stroke="#facc15" stroke-width="2.5"/><circle cx="42" cy="29" r="2.5" fill="#facc15"/></svg></span><h3>إدارة المدارس</h3><p>الطلاب والدرجات والرسوم</p>
+<span class="b">تفاصيل البرنامج</span></a><a class="tc slide" data-cat="service" href="program.html?id=restaurant" style="--c1:#ef4444;--c2:#fca5a5">
+
+<span class="ico"><svg width="64" height="64" viewBox="0 0 48 48"><path d="M14 5v14a4 4 0 0 1-3 3.9V43h-4V22.9A4 4 0 0 1 4 19V5h3v11h2V5h2v11h2V5z" fill="currentColor"/><path d="M36 5c-6 0-9 8-9 16h5v22h4z" fill="currentColor" opacity=".8"/><circle cx="24" cy="30" r="0"/></svg></span><h3>إدارة المطاعم</h3><p>الطلبات والطاولات والمطبخ</p>
+<span class="b">تفاصيل البرنامج</span></a><a class="tc slide" data-cat="trade" href="program.html?id=raei" style="--c1:#eab308;--c2:#fde047">
+
+<span class="ico"><svg width="64" height="64" viewBox="0 0 48 48"><ellipse cx="18" cy="27" rx="10" ry="13" fill="currentColor"/><ellipse cx="32" cy="29" rx="9" ry="11.5" fill="currentColor" opacity=".7"/><ellipse cx="15" cy="21" rx="3" ry="4.5" fill="#fff" opacity=".5"/></svg></span><h3>مكاتب بيع البيض</h3><p>بيع بالكارتون والطبقة والديون</p>
+<span class="b">تفاصيل البرنامج</span></a><a class="tc slide" data-cat="medical" href="program.html?id=clinic" style="--c1:#06b6d4;--c2:#67e8f9">
+
+<span class="ico"><svg width="64" height="64" viewBox="0 0 48 48"><rect x="8" y="10" width="32" height="32" rx="5" fill="currentColor"/><rect x="18" y="5" width="12" height="8" rx="2" fill="currentColor" opacity=".7"/><path d="M24 18v16M16 26h16" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg></span><h3>سكرتارية الأطباء</h3><p>المواعيد والمراجعين والوصفات</p>
+<span class="b">تفاصيل البرنامج</span></a><a class="tc slide" data-cat="admin" href="program.html?id=attendance" style="--c1:#6366f1;--c2:#a5b4fc">
+
+<span class="ico"><svg width="64" height="64" viewBox="0 0 48 48"><circle cx="24" cy="24" r="18" fill="currentColor"/><path d="M24 13v12l8 5" stroke="#fff" stroke-width="4" stroke-linecap="round" fill="none"/></svg></span><h3>الحضور والانصراف</h3><p>الدوام والتأخير والرواتب</p>
+<span class="b">تفاصيل البرنامج</span></a><a class="tc slide" data-cat="medical" href="program.html?id=hospital" style="--c1:#0ea5e9;--c2:#7dd3fc">
+<span class="tag">قريباً</span>
+<span class="ico"><svg width="64" height="64" viewBox="0 0 48 48"><rect x="7" y="12" width="34" height="30" rx="3" fill="currentColor"/><rect x="17" y="5" width="14" height="10" rx="2" fill="currentColor" opacity=".7"/><path d="M24 7v6M21 10h6" stroke="#fff" stroke-width="2.5"/><rect x="12" y="19" width="6" height="6" rx="1" fill="#fff" opacity=".85"/><rect x="30" y="19" width="6" height="6" rx="1" fill="#fff" opacity=".85"/><rect x="12" y="29" width="6" height="6" rx="1" fill="#fff" opacity=".85"/><rect x="30" y="29" width="6" height="6" rx="1" fill="#fff" opacity=".85"/><rect x="20" y="32" width="8" height="10" rx="1" fill="#fff"/></svg></span><h3>إدارة المستشفيات</h3><p>من استقبال المريض إلى الفاتورة</p>
+<span class="b">تفاصيل البرنامج</span></a></div></div>
+<div class="car-nav"><button class="cbtn" id="cprev" aria-label="السابق"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button><div class="dots"></div><button class="cbtn" id="cnext" aria-label="التالي"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button></div>
+</div></div></div></section>
 </main>
+<footer><div class="wrap">
+<div class="f-in">
+ <div><h4>دقّة · <span style="font-family:Arial">BYTE</span> للحلول البرمجية</h4>
+ <p>مجموعة عراقية متخصصة في تطوير البرامج المحاسبية والإدارية، تصميم المواقع، الاستضافة والدعم الفني.</p></div>
+ <div><h4>روابط</h4><ul><li><a href="index.html">الرئيسية</a></li><li><a href="services.html">خدماتنا</a></li><li><a href="programs.html">برامجنا</a></li><li><a href="hosting.html">الاستضافة</a></li><li><a href="about.html">من نحن</a></li><li><a href="contact.html">اتصل بنا</a></li></ul></div>
+ <div class="f-c"><h4>تواصل معنا</h4><ul>
+  <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.5L3.5 20.5l1.4-4.3A8.5 8.5 0 1 1 20.5 11.6z"/><path d="M9 8.5c0 3.5 2.8 6.5 6.5 6.5l1-1.6-2-1-1 .8a5 5 0 0 1-2.7-2.7l.8-1-1-2z"/></svg><a href="https://wa.me/9647867492096">07867492096</a></li>
+  <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><a href="mailto:info@byteiraq.com">info@byteiraq.com</a></li>
+  <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg><a href="https://byteiraq.com">byteiraq.com</a></li>
+  <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>العراق - بابل - الحلة</li></ul></div>
+</div>
+<div class="copy">© 2026 دقّة · من <b>BYTE</b> للحلول البرمجية. جميع الحقوق محفوظة.</div>
+</div></footer>
+<a class="wa-fab" href="https://wa.me/9647867492096" aria-label="واتساب"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.5L3.5 20.5l1.4-4.3A8.5 8.5 0 1 1 20.5 11.6z"/><path d="M9 8.5c0 3.5 2.8 6.5 6.5 6.5l1-1.6-2-1-1 .8a5 5 0 0 1-2.7-2.7l.8-1-1-2z"/></svg></a>
+<script>
+(function(){
+ var b=document.getElementById('burger'),m=document.getElementById('menu');
+ if(b)b.onclick=function(){m.classList.toggle('open')};
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
+ document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+})();
 
-<footer>
-  <div class="wrap">
-    <div class="foot">
-      <a href="index.html" class="logo"><svg width="52" height="52"><use href="#logoB"/></svg><span class="logo-txt"><b>بايت</b><i>Byte</i><small>للحلول البرمجية</small></span></a>
-      <div class="item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="num">07867492096</span></div>
-      <div class="item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>العراق - بابل - الحلة</div>
-      <div class="socials">
-        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="فيسبوك" style="background:#1877f2"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.3V10H7v4h3v8h4v-8h3l1-4h-4V8.6c0-.4.2-.6.6-.6z"/></svg></a>
-        <a href="https://t.me" target="_blank" rel="noopener" aria-label="تيليجرام" style="background:#229ed9"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 3.5L2.8 10.8c-1 .4-1 1.6.1 1.9l4.7 1.5 1.8 5.6c.3.8 1.2 1 1.8.4l2.6-2.4 4.9 3.6c.7.5 1.6.1 1.8-.7L23 4.8c.2-1-.6-1.7-1.5-1.3zM9.6 14.1l8.6-7.6-6.9 8.9-.3 3z"/></svg></a>
-        <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="يوتيوب" style="background:#e11d2e"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.9.4A3 3 0 0 0 1 7.5 31 31 0 0 0 .6 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.9-.4a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-4.5 31 31 0 0 0-.4-4.5zM9.8 15.2V8.8l5.6 3.2z"/></svg></a>
-      </div>
-    </div>
-    <nav class="fnav" aria-label="روابط سريعة"><a href="index.html">الرئيسية</a><a href="programs.html">البرامج</a><a href="services.html">الخدمات</a><a href="pricing.html">الأسعار</a><a href="support.html">الدعم الفني</a><a href="about.html">من نحن</a><a href="contact.html">تواصل معنا</a></nav>
-    <div class="copyr">© 2026 بايت للحلول البرمجية. جميع الحقوق محفوظة.</div>
-  </div>
-</footer>
-<script src="script.js"></script>
+(function(){
+ var track=document.querySelector('.track'),slides=[].slice.call(track.children),prev=document.getElementById('cprev'),next=document.getElementById('cnext'),dots=document.querySelector('.dots'),idx=0,cat='all';
+ function per(){return innerWidth<=600?1:innerWidth<=1000?2:4}
+ function vis(){return slides.filter(function(s){return !s.classList.contains('hide')})}
+ function pages(){return Math.max(1,Math.ceil(vis().length/per()))}
+ function render(){
+  var p=pages();if(idx>p-1)idx=p-1;if(idx<0)idx=0;
+  var v=vis();var first=v[Math.min(idx*per(),v.length-1)];
+  var off=first?first.offsetLeft-v[0].offsetLeft:0;
+  // RTL: items flow right-to-left, offsets are negative
+  track.style.transform='translateX('+(-off)+'px)';
+  track.style.justifyContent=v.length<per()?'center':'flex-start';
+  dots.innerHTML='';for(var i=0;i<p;i++){var d=document.createElement('i');if(i===idx)d.className='on';(function(k){d.onclick=function(){idx=k;render()}})(i);dots.appendChild(d)}
+  prev.disabled=idx===0;next.disabled=idx>=p-1;
+ }
+ prev.onclick=function(){idx--;render()};next.onclick=function(){idx++;render()};
+ document.querySelectorAll('.flt').forEach(function(b){b.onclick=function(){
+  document.querySelectorAll('.flt').forEach(function(x){x.classList.remove('on')});b.classList.add('on');cat=b.dataset.f;
+  slides.forEach(function(s){s.classList.toggle('hide',cat!=='all'&&s.dataset.cat!==cat)});idx=0;render();}});
+ var sx=null;track.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+ track.addEventListener('touchend',function(e){if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){if(dx>0)idx++;else idx--;render()}sx=null});
+ addEventListener('resize',render);render();
+})();
+</script>
 </body>
 </html>

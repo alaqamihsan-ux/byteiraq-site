@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>استضافة المواقع | دقّة · BYTE للحلول البرمجية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Tajawal','Cairo',system-ui,sans-serif;background:#030a24;color:#e6ecff;min-height:100vh;overflow-x:hidden;line-height:1.7}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font-family:inherit}
+.bg{position:fixed;inset:0;z-index:-1;background:
+ radial-gradient(900px 500px at 85% -10%,rgba(47,107,255,.35),transparent 60%),
+ radial-gradient(700px 500px at -10% 40%,rgba(139,92,246,.28),transparent 60%),
+ radial-gradient(700px 400px at 100% 100%,rgba(34,211,238,.15),transparent 60%),
+ linear-gradient(180deg,#030a24,#050d2e 50%,#030a24)}
+.bg:after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(120,160,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(120,160,255,.05) 1px,transparent 1px);background-size:46px 46px;mask-image:linear-gradient(180deg,#000,transparent 70%)}
+.wrap{width:min(1240px,92%);margin-inline:auto}
+/* header */
+.top{position:sticky;top:0;z-index:50;padding:14px 0;background:rgba(3,10,36,.72);backdrop-filter:blur(14px);border-bottom:1px solid rgba(120,160,255,.14)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.menu{display:flex;gap:6px;list-style:none;flex-wrap:wrap}
+.menu a{display:flex;align-items:center;gap:8px;padding:9px 16px;border-radius:12px;font-weight:700;font-size:15.5px;color:#cfd8ff;transition:.25s;border:1px solid transparent}
+.menu a:hover{background:rgba(47,107,255,.14);color:#fff}
+.menu a.active{background:linear-gradient(135deg,#2f6bff,#1d4ed8);color:#fff;border-color:rgba(147,197,253,.6);box-shadow:0 0 22px rgba(47,107,255,.55)}
+.brand{display:flex;align-items:center;gap:18px}
+.dq2{display:flex;align-items:center;gap:8px;font-family:'Cairo';font-weight:900;font-size:24px;color:#fff}
+.dq2 svg,.bx svg{width:40px;height:40px}
+.bx{display:flex;align-items:center;gap:10px}
+.bx .t{display:flex;flex-direction:column;line-height:1.1;text-align:left}
+.bx b{font-family:'Arial Black',Arial,sans-serif;font-size:26px;letter-spacing:1px;color:#fff}
+.bx small{font-size:11.5px;color:#9fb3ff}
+.sep{width:1px;height:34px;background:rgba(160,180,255,.3)}
+.burger{display:none;background:none;border:1px solid rgba(160,180,255,.3);color:#fff;border-radius:10px;padding:7px;cursor:pointer}
+/* hero */
+.hero{padding:56px 0 30px}
+.hero-in{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:30px}
+.hero h1{font-family:'Cairo';font-weight:900;font-size:clamp(40px,5.4vw,66px);line-height:1.15;background:linear-gradient(180deg,#fff,#bfe9ff);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 40px rgba(34,211,238,.25)}
+.hero .sub{font-size:clamp(18px,2vw,23px);color:#d5ddff;margin-top:10px;font-weight:500}
+.hero .art{display:flex;justify-content:center;filter:drop-shadow(0 20px 50px rgba(47,107,255,.45))}
+.hero .art svg{width:100%;max-width:520px;height:auto}
+.float{animation:fl 6s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-12px)}}
+.checks{list-style:none;margin-top:22px;display:grid;gap:10px}
+.checks li{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:600}
+.checks svg{color:#22d3ee;flex:none}
+/* glass cards */
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(140,170,255,.22);border-radius:22px;backdrop-filter:blur(10px);box-shadow:0 10px 40px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.08)}
+.sec{padding:30px 0 60px}
+.sec-t{display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Cairo';font-weight:800;font-size:30px;margin-bottom:26px;color:#fff}
+.sec-t svg{color:#22d3ee}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 26px;border-radius:12px;font-weight:800;font-size:16px;border:0;cursor:pointer;transition:.25s;color:#fff;background:linear-gradient(135deg,#2f6bff,#22d3ee);box-shadow:0 8px 26px rgba(47,107,255,.45)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(47,107,255,.6)}
+.btn.green{background:linear-gradient(135deg,#16a34a,#22c55e);box-shadow:0 8px 26px rgba(34,197,94,.4)}
+.btn.ghost{background:rgba(255,255,255,.06);border:1px solid rgba(160,190,255,.35);box-shadow:none}
+/* themed cards */
+.tc{--c1:#3b82f6;--c2:#93c5fd;position:relative;border-radius:22px;padding:26px 20px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;
+ background:linear-gradient(170deg,color-mix(in srgb,var(--c1) 30%,transparent),rgba(8,16,52,.85) 70%);border:1.5px solid color-mix(in srgb,var(--c1) 70%,transparent);
+ box-shadow:0 0 0 1px rgba(255,255,255,.03) inset,0 14px 40px rgba(0,0,0,.4),0 0 26px color-mix(in srgb,var(--c1) 35%,transparent);transition:.3s}
+.tc:hover{transform:translateY(-6px);box-shadow:0 18px 50px rgba(0,0,0,.45),0 0 40px color-mix(in srgb,var(--c1) 60%,transparent)}
+.tc .ico{color:var(--c2);filter:drop-shadow(0 0 14px var(--c1));margin-bottom:4px}
+.tc h3{font-family:'Cairo';font-weight:800;font-size:21px;color:#fff;line-height:1.35}
+.tc p{color:#d3dbff;font-size:15.5px}
+.tc .b{margin-top:auto;padding:9px 20px;border-radius:10px;font-weight:800;font-size:14.5px;color:#fff;background:linear-gradient(135deg,var(--c1),color-mix(in srgb,var(--c1) 55%,#000));box-shadow:0 6px 20px color-mix(in srgb,var(--c1) 45%,transparent)}
+.tag{position:absolute;top:14px;left:14px;font-size:12px;font-weight:800;padding:3px 10px;border-radius:20px;background:var(--c1);color:#fff}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+/* footer */
+footer{margin-top:40px;border-top:1px solid rgba(120,160,255,.14);background:rgba(2,8,28,.7);padding:34px 0 22px}
+.f-in{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}
+footer h4{font-family:'Cairo';font-size:18px;margin-bottom:10px;color:#fff}
+footer p,footer li{color:#aab8e8;font-size:15px}
+footer ul{list-style:none;display:grid;gap:6px}
+footer a:hover{color:#22d3ee}
+.f-c li{display:flex;align-items:center;gap:8px}
+.copy{text-align:center;color:#7d8cc0;font-size:14px;margin-top:24px;padding-top:16px;border-top:1px solid rgba(120,160,255,.1)}
+.copy b{font-family:Arial,sans-serif}
+.wa-fab{position:fixed;bottom:22px;left:22px;z-index:60;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#22c55e;color:#fff;box-shadow:0 8px 26px rgba(34,197,94,.55);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.55)}70%{box-shadow:0 0 0 16px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+.reveal.on{opacity:1;transform:none}
+@media (max-width:1000px){
+ .menu{display:none;position:absolute;top:100%;right:4%;left:4%;flex-direction:column;background:#071340;border:1px solid rgba(120,160,255,.25);border-radius:16px;padding:10px}
+ .menu.open{display:flex}
+ .burger{display:block}
+ .hero-in{grid-template-columns:1fr;text-align:center}
+ .checks{justify-items:center}
+ .g4{grid-template-columns:repeat(2,1fr)}
+ .g3{grid-template-columns:repeat(2,1fr)}
+ .f-in{grid-template-columns:1fr}
+ .bx small{display:none}
+}
+@media (max-width:600px){.g4,.g3{grid-template-columns:1fr}.dq2 b{display:none}}
+
+.dom{display:flex;align-items:center;gap:18px;padding:14px 18px;margin:0 0 40px}
+.dom label{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;white-space:nowrap;color:#fff}
+.dom label svg{color:#93c5fd}
+.dom form{flex:1;display:flex;align-items:center;gap:8px;background:#fff;border-radius:14px;padding:6px 6px 6px 6px}
+.dom input{flex:1;border:0;outline:0;font-size:17px;padding:8px 12px;color:#0a1a4f;background:transparent;direction:ltr;text-align:left}
+.dom select{border:0;outline:0;font-size:16px;color:#475569;background:transparent;direction:ltr;font-weight:700}
+.dom button{width:58px;height:44px;border-radius:11px;border:0;cursor:pointer;color:#fff;background:linear-gradient(135deg,#2f6bff,#22d3ee);display:grid;place-items:center}
+.tc{min-height:230px}
+@media (max-width:700px){.dom{flex-direction:column;align-items:stretch}.dom label{justify-content:center}}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="dqIco" viewBox="0 0 100 100"><rect x="3" y="3" width="94" height="94" rx="24" fill="#fff"/><rect x="15" y="13" width="17" height="17" rx="4" fill="#f97316"/><path d="M32 22H52Q77 22 77 47V80H31V59H64V47Q64 35 52 35H32Z" fill="#14205e"/></symbol>
+<symbol id="hexB" viewBox="0 0 100 100"><defs><linearGradient id="hxg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60a5fa"/><stop offset="1" stop-color="#1d4ed8"/></linearGradient></defs><polygon points="50,3 91,26.5 91,73.5 50,97 9,73.5 9,26.5" fill="url(#hxg)" stroke="#bfdbfe" stroke-width="2"/><polygon points="50,15 81,33 81,67 50,85 19,67 19,33" fill="#0b1a5c"/><text x="50" y="66" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="46" fill="#fff">B</text></symbol>
+</defs></svg>
+<header class="top"><div class="wrap nav">
+<ul class="menu" id="menu"><li><a href="index.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>الرئيسية</a></li><li><a href="services.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg>خدماتنا</a></li><li><a href="programs.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>برامجنا</a></li><li><a href="hosting.html" class=active><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01M11 6.5h6M11 17.5h6"/></svg>الاستضافة</a></li><li><a href="about.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14.5a5 5 0 0 1 4.5 5"/></svg>من نحن</a></li><li><a href="contact.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A18 18 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>اتصل بنا</a></li></ul>
+<button class="burger" id="burger" aria-label="القائمة"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></button>
+<div class="brand">
+ <a href="index.html" class="dq2" aria-label="دقّة"><svg><use href="#dqIco"/></svg><b>دقّة</b></a>
+ <span class="sep"></span>
+ <a href="index.html" class="bx" aria-label="BYTE"><span class="t"><b>BYTE</b><small>حلول برمجية متكاملة</small></span><svg><use href="#hexB"/></svg></a>
+</div></div></header>
+<main>
+<section class="hero"><div class="wrap hero-in">
+<div class="reveal"><h1>استضافة المواقع</h1><p class="sub">استضافة قوية وآمنة لموقعك الإلكتروني</p><ul class="checks"><li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 10"/></svg>سرعة عالية واستقرار دائم</li><li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 10"/></svg>حماية متقدمة من الهجمات</li><li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 10"/></svg>نسخ احتياطي تلقائي</li><li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 10"/></svg>دعم فني 24/7</li></ul></div>
+<div class="art reveal"><svg viewBox="0 0 540 380">
+<defs><linearGradient id="sv" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1b2a63"/><stop offset="1" stop-color="#0c1641"/></linearGradient>
+<linearGradient id="cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
+<radialGradient id="g2" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#22d3ee" stop-opacity=".55"/><stop offset="1" stop-color="#22d3ee" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="300" cy="350" rx="240" ry="24" fill="url(#g2)"/>
+<g>
+ <rect x="300" y="60" width="150" height="290" rx="12" fill="url(#sv)" stroke="#3b5bdb" stroke-width="2"/>
+ <rect x="440" y="90" width="80" height="260" rx="10" fill="#0a1238" stroke="#3b5bdb" stroke-width="2"/>
+ <g id="slots"></g>
+</g>
+<rect x="314" y="78" width="122" height="32" rx="6" fill="#0a1238" stroke="#2f4fc4"/><rect x="326" y="90" width="70" height="7" rx="3.5" fill="#3b82f6" opacity=".9"><animate attributeName="opacity" values=".9;.3;.9" dur="1.6s" repeatCount="indefinite"/></rect><circle cx="420" cy="94" r="4" fill="#22d3ee"/><rect x="314" y="122" width="122" height="32" rx="6" fill="#0a1238" stroke="#2f4fc4"/><rect x="326" y="134" width="70" height="7" rx="3.5" fill="#3b82f6" opacity=".9"><animate attributeName="opacity" values=".9;.3;.9" dur="1.9000000000000001s" repeatCount="indefinite"/></rect><circle cx="420" cy="138" r="4" fill="#22d3ee"/><rect x="314" y="166" width="122" height="32" rx="6" fill="#0a1238" stroke="#2f4fc4"/><rect x="326" y="178" width="70" height="7" rx="3.5" fill="#3b82f6" opacity=".9"><animate attributeName="opacity" values=".9;.3;.9" dur="2.2s" repeatCount="indefinite"/></rect><circle cx="420" cy="182" r="4" fill="#22d3ee"/><rect x="314" y="210" width="122" height="32" rx="6" fill="#0a1238" stroke="#2f4fc4"/><rect x="326" y="222" width="70" height="7" rx="3.5" fill="#3b82f6" opacity=".9"><animate attributeName="opacity" values=".9;.3;.9" dur="2.5s" repeatCount="indefinite"/></rect><circle cx="420" cy="226" r="4" fill="#22d3ee"/><rect x="314" y="254" width="122" height="32" rx="6" fill="#0a1238" stroke="#2f4fc4"/><rect x="326" y="266" width="70" height="7" rx="3.5" fill="#3b82f6" opacity=".9"><animate attributeName="opacity" values=".9;.3;.9" dur="2.8s" repeatCount="indefinite"/></rect><circle cx="420" cy="270" r="4" fill="#22d3ee"/><rect x="314" y="298" width="122" height="32" rx="6" fill="#0a1238" stroke="#2f4fc4"/><rect x="326" y="310" width="70" height="7" rx="3.5" fill="#3b82f6" opacity=".9"><animate attributeName="opacity" values=".9;.3;.9" dur="3.1s" repeatCount="indefinite"/></rect><circle cx="420" cy="314" r="4" fill="#22d3ee"/><rect x="452" y="104" width="56" height="26" rx="5" fill="#0d1a4d" stroke="#2f4fc4"/><rect x="460" y="114" width="30" height="6" rx="3" fill="#60a5fa" opacity=".8"/><rect x="452" y="144" width="56" height="26" rx="5" fill="#0d1a4d" stroke="#2f4fc4"/><rect x="460" y="154" width="30" height="6" rx="3" fill="#60a5fa" opacity=".8"/><rect x="452" y="184" width="56" height="26" rx="5" fill="#0d1a4d" stroke="#2f4fc4"/><rect x="460" y="194" width="30" height="6" rx="3" fill="#60a5fa" opacity=".8"/><rect x="452" y="224" width="56" height="26" rx="5" fill="#0d1a4d" stroke="#2f4fc4"/><rect x="460" y="234" width="30" height="6" rx="3" fill="#60a5fa" opacity=".8"/><rect x="452" y="264" width="56" height="26" rx="5" fill="#0d1a4d" stroke="#2f4fc4"/><rect x="460" y="274" width="30" height="6" rx="3" fill="#60a5fa" opacity=".8"/><rect x="452" y="304" width="56" height="26" rx="5" fill="#0d1a4d" stroke="#2f4fc4"/><rect x="460" y="314" width="30" height="6" rx="3" fill="#60a5fa" opacity=".8"/>
+<g class="float"><path d="M390 54a34 34 0 0 1 2-68 44 44 0 0 1 82 10 30 30 0 0 1 4 58z" transform="translate(-30 40)" fill="url(#cl)" opacity=".95"/>
+<path d="M410 70V22M394 38l16-16 16 16" transform="translate(-30 0)" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g transform="translate(10 150)">
+ <rect x="20" y="0" width="250" height="160" rx="12" fill="#c7d2fe"/>
+ <rect x="30" y="10" width="230" height="140" rx="6" fill="#0b1a5c"/>
+ <rect x="40" y="20" width="210" height="22" rx="5" fill="#1d4ed8"/><circle cx="52" cy="31" r="4" fill="#93c5fd"/>
+ <rect x="80" y="68" width="130" height="44" rx="10" fill="#1e40af" stroke="#60a5fa" stroke-width="2"/>
+ <text x="145" y="99" text-anchor="middle" font-family="Arial Black,Arial" font-size="24" fill="#fff">www</text>
+ <path d="M196 102l26 12-12 4 8 14-6 3-8-14-9 8z" fill="#fff"/>
+ <path d="M0 160h290l-18 22H18z" fill="#a5b4fc"/>
+</g>
+</svg></div>
+</div></section><section class="sec" style="padding-top:10px"><div class="wrap">
+<div class="glass dom reveal"><label><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg>ابحث عن نطاقك الآن</label>
+<form id="domf"><input id="dname" placeholder="www.اسم_النطاق" autocomplete="off"><select id="dext"><option>.com</option><option>.iq</option><option>.net</option><option>.org</option></select><button aria-label="بحث"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button></form></div>
+<h2 class="sec-t reveal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>باقات الاستضافة</h2>
+<div class="g4"><div class="tc reveal" style="--c1:#14b8a6;--c2:#5eead4">
+<span class="ico"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19C5 10 11 5 20 4c0 9-5 15-14 15z"/><path d="M5 19l8-8"/></svg></span><h3>اقتصادي</h3><p>للمواقع الشخصية</p>
+<a class="b" href="https://wa.me/9647867492096?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B6%D8%A7%D9%81%D8%A9%3A%20%D8%A7%D9%82%D8%AA%D8%B5%D8%A7%D8%AF%D9%8A" target="_blank">اطلب الآن</a></div><div class="tc reveal" style="--c1:#06b6d4;--c2:#67e8f9">
+<span class="ico"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 4.5-9 4.5-9-4.5z"/><path d="M3 12l9 4.5 9-4.5M3 16.5L12 21l9-4.5"/></svg></span><h3>أساسي</h3><p>للمواقع الصغيرة</p>
+<a class="b" href="https://wa.me/9647867492096?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B6%D8%A7%D9%81%D8%A9%3A%20%D8%A3%D8%B3%D8%A7%D8%B3%D9%8A" target="_blank">اطلب الآن</a></div><div class="tc reveal" style="--c1:#3b82f6;--c2:#93c5fd">
+<span class="ico"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></span><h3>متقدم</h3><p>للمواقع الاحترافية</p>
+<a class="b" href="https://wa.me/9647867492096?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B6%D8%A7%D9%81%D8%A9%3A%20%D9%85%D8%AA%D9%82%D8%AF%D9%85" target="_blank">اطلب الآن</a></div><div class="tc reveal" style="--c1:#8b5cf6;--c2:#c4b5fd">
+<span class="ico"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z"/></svg></span><h3>برو</h3><p>للمواقع الكبيرة والمتاجر</p>
+<a class="b" href="https://wa.me/9647867492096?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B6%D8%A7%D9%81%D8%A9%3A%20%D8%A8%D8%B1%D9%88" target="_blank">اطلب الآن</a></div></div></div></section>
+</main>
+<footer><div class="wrap">
+<div class="f-in">
+ <div><h4>دقّة · <span style="font-family:Arial">BYTE</span> للحلول البرمجية</h4>
+ <p>مجموعة عراقية متخصصة في تطوير البرامج المحاسبية والإدارية، تصميم المواقع، الاستضافة والدعم الفني.</p></div>
+ <div><h4>روابط</h4><ul><li><a href="index.html">الرئيسية</a></li><li><a href="services.html">خدماتنا</a></li><li><a href="programs.html">برامجنا</a></li><li><a href="hosting.html">الاستضافة</a></li><li><a href="about.html">من نحن</a></li><li><a href="contact.html">اتصل بنا</a></li></ul></div>
+ <div class="f-c"><h4>تواصل معنا</h4><ul>
+  <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.5L3.5 20.5l1.4-4.3A8.5 8.5 0 1 1 20.5 11.6z"/><path d="M9 8.5c0 3.5 2.8 6.5 6.5 6.5l1-1.6-2-1-1 .8a5 5 0 0 1-2.7-2.7l.8-1-1-2z"/></svg><a href="https://wa.me/9647867492096">07867492096</a></li>
+  <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><a href="mailto:info@byteiraq.com">info@byteiraq.com</a></li>
+  <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg><a href="https://byteiraq.com">byteiraq.com</a></li>
+  <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>العراق - بابل - الحلة</li></ul></div>
+</div>
+<div class="copy">© 2026 دقّة · من <b>BYTE</b> للحلول البرمجية. جميع الحقوق محفوظة.</div>
+</div></footer>
+<a class="wa-fab" href="https://wa.me/9647867492096" aria-label="واتساب"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.5L3.5 20.5l1.4-4.3A8.5 8.5 0 1 1 20.5 11.6z"/><path d="M9 8.5c0 3.5 2.8 6.5 6.5 6.5l1-1.6-2-1-1 .8a5 5 0 0 1-2.7-2.7l.8-1-1-2z"/></svg></a>
+<script>
+(function(){
+ var b=document.getElementById('burger'),m=document.getElementById('menu');
+ if(b)b.onclick=function(){m.classList.toggle('open')};
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
+ document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+})();
+
+document.getElementById('domf').onsubmit=function(e){e.preventDefault();var n=document.getElementById('dname').value.trim().replace(/^https?:\/\//,'').replace(/^www\./,'');
+if(!n){document.getElementById('dname').focus();return}if(n.indexOf('.')<0)n+=document.getElementById('dext').value;
+window.open('https://wa.me/9647867492096?text='+encodeURIComponent('السلام عليكم، أريد أحجز النطاق: '+n),'_blank');};
+</script>
+</body>
+</html>
