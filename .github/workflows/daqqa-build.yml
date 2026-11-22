@@ -34,7 +34,7 @@ jobs:
           mkdir -p app/BytePharmacy/resources/app
           cp -r "$S"pos-app/. app/BytePharmacy/resources/app/
           cp "$S"BytePharmacy-Update-$V.bpu "$S"pharmacy-latest.json . || true
-          curl -sSL -o Arabic.isl https://raw.githubusercontent.com/jrsoftware/issrc/main/Files/Languages/Unofficial/Arabic.isl
+          curl -sSL -o Arabic.isl https://raw.githubusercontent.com/jrsoftware/issrc/main/Files/Languages/Arabic.isl
       - name: Build installer
         run: |
           printf '\xEF\xBB\xBF' > d.iss
