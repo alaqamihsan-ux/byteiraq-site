@@ -645,5 +645,34 @@ f.addEventListener('submit',e=>{e.preventDefault();
 
 </script>
 <script>(function(){var t=document.getElementById('ltrack');if(!t)return;var st=function(){return t.querySelector('.lp').offsetWidth+18};document.getElementById('lnext').onclick=function(){t.scrollBy({left:-st(),behavior:'smooth'})};document.getElementById('lprev').onclick=function(){t.scrollBy({left:st(),behavior:'smooth'})};})();</script>
+<!-- عداد دقّة: نعمل في مجال التصاميم منذ 2006 -->
+<style>
+#dqSince{position:absolute;left:78.4%;top:35.9%;z-index:5;transform-origin:top center;transform:translateX(-50%) scale(.8);text-align:center;white-space:nowrap;font-family:Cairo,Tajawal,sans-serif;pointer-events:none}
+#dqSince .bx{background:rgba(255,255,255,.12);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.3);border-radius:16px;padding:8px 12px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+#dqSince .tg{color:#fff;font:800 12px Cairo,Tajawal,sans-serif;margin-bottom:4px}
+#dqSince .r{display:flex;direction:rtl;align-items:flex-end}
+#dqSince .u{display:flex;flex-direction:column;align-items:center;padding:0 7px}
+#dqSince .u+.u{border-right:1px solid rgba(255,255,255,.25)}
+#dqSince .n{font:900 22px Cairo,Tajawal,sans-serif;color:#fff;line-height:1.1}
+#dqSince .l{font:700 10px Cairo,Tajawal,sans-serif;color:#c8d6f5}
+</style>
+<script>
+(function(){
+  var ex=document.querySelector('.exact');if(!ex)return;
+  var U=[['se','ثانية'],['mi','دقيقة'],['h','ساعة'],['d','يوم'],['mo','شهر'],['y','سنة']];
+  var w=document.createElement('div');w.id='dqSince';w.setAttribute('aria-label','نعمل في مجال التصاميم منذ 2006');
+  w.innerHTML='<div class="bx"><div class="tg">نعمل في مجال التصاميم منذ 2006</div><div class="r">'+
+    U.map(function(u){return '<div class="u"><span class="n" data-k="'+u[0]+'">00</span><span class="l">'+u[1]+'</span></div>';}).join('')+'</div></div>';
+  ex.appendChild(w);
+  function fit(){var s=.8*ex.getBoundingClientRect().width/764;w.style.transform='translateX(-50%) scale('+s.toFixed(3)+')';}
+  var st=new Date(2006,0,1);function p(x){return (x<10?'0':'')+x;}
+  function tick(){var n=new Date(),y=n.getFullYear()-st.getFullYear(),m=n.getMonth()-st.getMonth(),d=n.getDate()-st.getDate();
+    if(d<0){m--;d+=new Date(n.getFullYear(),n.getMonth(),0).getDate();}if(m<0){y--;m+=12;}
+    var v={y:y,mo:m,d:d,h:n.getHours(),mi:n.getMinutes(),se:n.getSeconds()};
+    var e=w.querySelectorAll('[data-k]');for(var i=0;i<e.length;i++)e[i].textContent=p(v[e[i].getAttribute('data-k')]);}
+  fit();tick();setInterval(tick,1000);window.addEventListener('resize',fit);
+})();
+</script>
+<!-- نهاية عداد دقّة -->
 </body>
 </html>
