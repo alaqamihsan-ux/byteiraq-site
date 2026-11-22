@@ -182,12 +182,13 @@ i.city{display:block;inset:120px auto auto 0;width:min(240px,15vw);aspect-ratio:
 .exact .dq-over svg{height:100%;aspect-ratio:1;width:auto;filter:drop-shadow(0 0 12px rgba(59,130,246,.55))}
 .exact .dq-over b{font-family:var(--display);font-weight:900;font-size:clamp(1rem,1.9vw,2rem)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-@media (min-width:900px){
+@media (min-width:700px){
   .exact{display:block}
   .home .stage{display:none}
   .home .wa-float{display:none}
 }
 @media (max-width:1020px){i.city{display:none}}
+@media (max-width:699px){.exact{display:none!important}}
 
 /* live menu over the mockup header (adds استضافة وتصميم المواقع) */
 .exact .ovmenu{position:absolute;left:35.4%;top:0;width:55.6%;height:8.6%;display:flex;flex-direction:row-reverse;direction:ltr;align-items:center;justify-content:space-between;gap:.4vw;padding:0 .5vw 0 1.2vw;
